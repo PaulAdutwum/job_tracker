@@ -1,7 +1,18 @@
 # Internship Tracker (MCP server)
 
-Watches company job boards on **Greenhouse, Lever, Ashby and Workday**, finds internship
-postings the moment they go live, flags visa sponsorship, and lets Claude query it all as tools.
+Watches ~350 sources for internships and student programs, sorts them into **SWE, Quant,
+Finance, Hardware and Events & programs**, flags visa sponsorship, alerts your phone, and lets
+Claude query it all as tools.
+
+**Sources**
+- **Company job boards, checked directly:** Greenhouse, Lever, Ashby, Workday (Citi, Barclays,
+  BlackRock, Capital One, NVIDIA, Salesforce), Oracle (JPMorgan, American Express)
+- **SimplifyJobs Summer 2027 list:** ~1,350 companies, including firms whose sites we can't read
+  directly (Goldman Sachs, Citadel, Jane Street, Meta, Amazon…)
+- `discover.py` finds more company boards from Simplify's links; re-run it now and then
+
+**Sections** are assigned in `sections.py` from the title (and Simplify's category).
+Alerts fire for the sections in `alert_sections` in `config.json`.
 
 ## How it works
 

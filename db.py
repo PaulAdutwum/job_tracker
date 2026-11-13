@@ -13,20 +13,33 @@ CREATE TABLE IF NOT EXISTS jobs (
     posted TEXT,                 -- when the company published it (Workday gives a date only)
     first_seen TEXT,             -- when this tracker first noticed it
     sponsorship TEXT,            -- Sponsors / Does not sponsor / Not specified
-    sponsorship_evidence TEXT    -- the sentence that decided it
+    sponsorship_evidence TEXT,   -- the sentence that decided it
+    category TEXT,               -- Simplify's role category, when available
+    section TEXT                 -- swe / quant / finance / hardware / events / other (see sections.py)
 );
 CREATE TABLE IF NOT EXISTS companies_seen (name TEXT PRIMARY KEY);
 """
 
 COLUMNS = ["id", "company", "platform", "title", "location", "url", "us", "posted",
-           "first_seen", "sponsorship", "sponsorship_evidence"]
+           "first_seen", "sponsorship", "sponsorship_evidence", "category", "section"]
+# Columns added after the first version; older databases get them on connect.
+ADDED_COLUMNS = {"category": "TEXT", "section": "TEXT"}
 
 
 def connect():
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     conn.executescript(SCHEMA)
+    existing = {r["name"] for r in conn.execute("PRAGMA table_info(jobs)")}
+    for name, kind in ADDED_COLUMNS.items():
+        if name not in existing:
+            conn.execute(f"ALTER TABLE jobs ADD COLUMN {name} {kind}")
     return conn
+
+
+def known_titles(conn):
+    """(company, title) pairs already stored, lowercased, for spotting duplicates across sources."""
+    return {(r["company"].lower(), r["title"].lower()) for r in conn.execute("SELECT company, title FROM jobs")}
 
 
 def now():
@@ -60,20 +73,26 @@ def known_ids(conn, ids):
     return found
 
 
-def save_new_jobs(conn, jobs, fetched_companies):
+def backfill_sections(conn, section_of):
+    """Fill section for jobs stored before that column existed."""
+    rows = conn.execute("SELECT id, title, category FROM jobs WHERE section IS NULL").fetchall()
+    conn.executemany("UPDATE jobs SET section = ? WHERE id = ?", [(section_of(dict(r)), r["id"]) for r in rows])
+
+
+def save_new_jobs(conn, jobs, fetched_sources):
     """Insert jobs that aren't stored yet and return the ones worth alerting about.
 
-    The first time a company is checked, its existing jobs are recorded silently as a
-    baseline, so you aren't flooded with hundreds of "new" alerts on day one.
+    The first time a source (a company board, or Simplify) is checked, its existing jobs are
+    recorded silently as a baseline, so you aren't flooded with hundreds of "new" alerts on day one.
     """
     baselined = {r["name"] for r in conn.execute("SELECT name FROM companies_seen")}
     placeholders = ", ".join(f":{c}" for c in COLUMNS)
     conn.executemany(f"INSERT OR IGNORE INTO jobs ({', '.join(COLUMNS)}) VALUES ({placeholders})",
                      [{c: j.get(c) for c in COLUMNS} for j in jobs])
     conn.executemany("INSERT OR IGNORE INTO companies_seen (name) VALUES (?)",
-                     [(c,) for c in fetched_companies])
+                     [(s,) for s in fetched_sources])
     conn.commit()
-    return [j for j in jobs if j["company"] in baselined]
+    return [j for j in jobs if j["source"] in baselined]
 
 
 def _newest_first(rows):
@@ -93,7 +112,8 @@ def recent(conn, hours):
     return [dict(r) for r in rows]
 
 
-def search(conn, query="", sponsorship=None, us_only=True, posted_within_hours=None, limit=100):
+def search(conn, query="", sponsorship=None, us_only=True, posted_within_hours=None,
+           section=None, limit=100):
     like = f"%{query}%"
     sql = "SELECT * FROM jobs WHERE (title LIKE ? OR company LIKE ? OR location LIKE ?)"
     params = [like, like, like]
@@ -102,6 +122,9 @@ def search(conn, query="", sponsorship=None, us_only=True, posted_within_hours=N
         params.append(sponsorship)
     if us_only:
         sql += " AND us = 1"
+    if section:
+        sql += " AND section = ?"
+        params.append(section)
     rows = [dict(r) for r in conn.execute(sql, params)]
     if posted_within_hours is not None:
         rows = [r for r in rows

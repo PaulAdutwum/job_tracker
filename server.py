@@ -29,13 +29,15 @@ def check_for_new_jobs() -> dict:
 def list_jobs(query: str = "",
               sponsorship: Literal["Sponsors", "Does not sponsor", "Not specified"] | None = None,
               us_only: bool = True,
-              posted_within_hours: int | None = None) -> list[dict]:
-    """List saved internship postings (newest posted first) with company, role, location, posted date/time
-    and visa sponsorship status. Filters: words in title/company/location, sponsorship, US-only (default on),
-    and posted_within_hours (e.g. 24 for jobs posted in the last day)."""
+              posted_within_hours: int | None = None,
+              section: Literal["swe", "quant", "finance", "hardware", "events", "other"] | None = None) -> list[dict]:
+    """List saved internship postings and company-sponsored programs/events (newest posted first) with
+    company, role, location, posted date/time and visa sponsorship status. Filters: words in
+    title/company/location, sponsorship, US-only (default on), posted_within_hours (e.g. 24 for the
+    last day), and section (swe, quant, finance, hardware, or events for insight programs/summits)."""
     conn = db.connect()
     try:
-        return db.search(conn, query, sponsorship, us_only, posted_within_hours)
+        return db.search(conn, query, sponsorship, us_only, posted_within_hours, section)
     finally:
         conn.close()
 
