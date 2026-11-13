@@ -1,0 +1,172 @@
+# Target companies. One per line; extra names/brands after "|" are aliases used for matching.
+# If a company isn't found automatically, add its job-board link as an alias, e.g.
+#   MarketAxess|https://marketaxess.wd1.myworkdayjobs.com/MarketAxess
+# Then run:  .venv/bin/python add_companies.py
+
+# Core targets (NYC / Chicago / SF)
+Two Sigma
+Jane Street
+BlackRock
+Goldman Sachs
+Ramp
+Stripe
+Citadel|Citadel Securities
+Akuna Capital
+DRW
+JPMorgan Chase|JP Morgan|JPMorgan
+Meta
+Scale AI
+Notion
+Figma
+Plaid
+
+# Electronic trading venues, exchanges & digital asset marketplaces
+MarketAxess
+Tradeweb|Tradeweb Markets
+Gemini
+Trumid
+Liquidnet
+IEX|IEX Group
+MEMX|Members Exchange
+BGC Group|BGC|Fenics
+Octaura
+RTX Fintech
+Moment
+BondCliQ
+24 Exchange
+Cboe|Cboe Global Markets
+Intercontinental Exchange|ICE|NYSE
+Nasdaq
+Paxos
+Galaxy|Galaxy Digital
+CME Group
+MIAX|Miami International Holdings
+Small Exchange
+Coinbase
+Kraken
+Anchorage Digital
+Kalshi
+
+# Execution, OMS/EMS, connectivity & post-trade tech
+FlexTrade|FlexTrade Systems
+TS Imagine
+Exegy
+Pico
+Dash Financial Technologies|Dash Financial
+EquiLend
+Clear Street
+Capitolis
+LiquidityBook
+OpenFin
+Interop.io
+Genesis Global
+DriveWealth
+Talos
+LTX
+Imandra
+Enfusion
+Hazeltree
+Bloomberg
+Trading Technologies
+Sterling Trading Tech
+CQG
+SpiderRock
+4th Story
+Symphony
+Alpaca
+Zero Hash
+
+# Market data, quant infrastructure & analytics
+BMLL Technologies|BMLL
+Koyfin
+AlphaSense
+Canoe Intelligence
+Maybern
+YipitData
+Earnest Analytics
+M Science
+Quantitative Brokers
+Supernova Technology
+Numerai
+Databento
+
+# Automotive, mobility & EV
+BMW|BMW Group
+Tesla
+Lucid Motors|Lucid
+Aurora Innovation|Aurora
+NXP Semiconductors|NXP
+Sensata Technologies|Sensata
+
+# Industrial automation, power, robotics & EE
+Siemens
+Bosch|Robert Bosch
+Schneider Electric
+ABB
+GE Vernova
+GE Aerospace
+Honeywell
+Rockwell Automation
+Eaton
+Emerson|Emerson Electric
+Danfoss
+Endress+Hauser
+Hubbell
+Carrier
+Boston Dynamics
+Amazon Robotics|Amazon
+
+# Semiconductor, RF, optical & hardware systems
+Apple
+Google
+Microsoft
+Dell Technologies|Dell
+Texas Instruments
+Analog Devices
+Qorvo
+Skyworks Solutions|Skyworks
+Microchip Technology|Microchip
+Lattice Semiconductor
+Achronix Semiconductor|Achronix
+Keysight Technologies|Keysight
+Tektronix
+Coherent
+Lumentum
+Ubiquiti
+DigitalOcean
+Cloudflare
+Databricks
+Snowflake
+
+# Aerospace, defense & space
+Lockheed Martin
+Northrop Grumman
+L3Harris Technologies|L3Harris
+RTX|Raytheon|Collins Aerospace|Pratt & Whitney
+BAE Systems
+Boeing
+Airbus
+AeroVironment
+Planet Labs|Planet
+Spire Global
+Astranis
+
+# Infrastructure, MEP, SCADA & consulting
+Jacobs
+AECOM
+Arcadis
+Arup
+Thornton Tomasetti
+WSP
+Langan
+CDM Smith
+Bechtel
+Kiewit
+
+# NYC & Bay Area software/hardware companies
+Braze
+Celestica
+Becton Dickinson|BD
+Boston Scientific
+Toshiba
+Dolby|Dolby Laboratories

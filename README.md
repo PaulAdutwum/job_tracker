@@ -10,6 +10,8 @@ Claude query it all as tools.
 - **SimplifyJobs Summer 2027 list:** ~1,350 companies, including firms whose sites we can't read
   directly (Goldman Sachs, Citadel, Jane Street, Meta, Amazon…)
 - `discover.py` finds more company boards from Simplify's links; re-run it now and then
+- `targets.txt` is your own company list; `add_companies.py` adds any that aren't tracked yet
+  and reports which are covered only by Simplify or not found
 
 **Sections** are assigned in `sections.py` from the title (and Simplify's category).
 Alerts fire for the sections in `alert_sections` in `config.json`.
