@@ -15,8 +15,9 @@ import httpx
 
 import db
 import report
-from fetchers import fetch_all, fill_workday_details, make_client, matches
+from fetchers import fetch_all, fill_details, make_client, matches
 from location import is_us
+from sections import LABELS, section_of
 from sponsorship import classify
 
 CONFIG_PATH = Path(__file__).parent / "config.json"
@@ -40,15 +41,23 @@ def run_check():
     try:
         with make_client() as client:
             jobs, errors = fetch_all(cfg["companies"], client)
-            jobs = [j for j in jobs if matches(j["title"], cfg["filters"])]
+            jobs = [j for j in jobs if matches(j, cfg["filters"])]
 
-            # Only do the extra work (Workday detail pages, sponsorship scan) for jobs we haven't stored.
+            # Only do the extra work (detail pages, sponsorship scan) for jobs we haven't stored.
             known = db.known_ids(conn, [j["id"] for j in jobs])
             unseen = [j for j in jobs if j["id"] not in known]
+            db.backfill_sections(conn, section_of)
+
+            # The same posting can come from a company's own board and from Simplify; keep the direct one.
+            direct = {(j["company"].lower(), j["title"].lower()) for j in jobs if j["platform"] != "simplify"}
+            seen_titles = db.known_titles(conn) | direct
+            unseen = [j for j in unseen if j["platform"] != "simplify"
+                      or (j["company"].lower(), j["title"].lower()) not in seen_titles]
+
             needs_detail = [j for j in unseen if j["description"] is None]
             failed = {}
             with ThreadPoolExecutor(max_workers=8) as pool:
-                for job, f in [(j, pool.submit(fill_workday_details, j, client)) for j in needs_detail]:
+                for job, f in [(j, pool.submit(fill_details, j, client)) for j in needs_detail]:
                     try:
                         f.result()
                     except Exception:
@@ -59,14 +68,20 @@ def run_check():
 
         seen_at = db.now()
         for j in unseen:
-            j["sponsorship"], j["sponsorship_evidence"] = classify(j["description"])
+            if j["platform"] == "simplify":
+                j["sponsorship"], j["sponsorship_evidence"] = j["sponsorship_label"], j["sponsorship_note"]
+            else:
+                j["sponsorship"], j["sponsorship_evidence"] = classify(j["description"])
             j["us"] = int(is_us(j["location"], j["country"]))
+            j["section"] = section_of(j)
             j["first_seen"] = seen_at
 
         fetched = [c["name"] for c in cfg["companies"] if c["name"] not in errors]
         new = db.save_new_jobs(conn, unseen, fetched)
         if cfg["filters"].get("us_only", True):
             new = [j for j in new if j["us"]]  # non-US jobs are still saved, just not alerted on
+        alert_sections = cfg["filters"].get("alert_sections", list(LABELS))
+        new = [j for j in new if j["section"] in alert_sections]  # same for sections you don't follow
         new = [j for j in new
                if (h := db.hours_since_posted(j["posted"])) is not None and h <= ALERT_MAX_AGE_HOURS]
         report.write(db.all_jobs(conn))
@@ -91,7 +106,7 @@ def notify_phone(new_jobs, topic):
         try:
             httpx.post("https://ntfy.sh/", timeout=15, json={
                 "topic": topic,
-                "title": f"New internship: {j['company']}",
+                "title": f"New {LABELS.get(j['section'], 'internship')}: {j['company']}",
                 "message": f"{j['title']}\n{j['location']} · {j['sponsorship']}",
                 "click": j["url"],
                 "tags": ["briefcase"],

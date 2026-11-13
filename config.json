@@ -1,21 +1,1818 @@
 {
   "filters": {
-    "include": ["\\bintern(ship)?s?\\b", "\\bco-?op\\b"],
-    "exclude": ["\\bph\\.?d\\b"],
-    "us_only": true
+    "include": [
+      "\\bintern(ship)?s?\\b",
+      "\\bco-?op\\b",
+      "summer analyst"
+    ],
+    "exclude": [
+      "\\bph\\.?d\\b",
+      "\\bmba\\b"
+    ],
+    "us_only": true,
+    "alert_sections": [
+      "swe",
+      "quant",
+      "finance",
+      "hardware",
+      "events"
+    ]
   },
   "companies": [
-    {"name": "Stripe", "platform": "greenhouse", "slug": "stripe"},
-    {"name": "Databricks", "platform": "greenhouse", "slug": "databricks"},
-    {"name": "Figma", "platform": "greenhouse", "slug": "figma"},
-    {"name": "Airbnb", "platform": "greenhouse", "slug": "airbnb"},
-    {"name": "Robinhood", "platform": "greenhouse", "slug": "robinhood"},
-    {"name": "Palantir", "platform": "lever", "slug": "palantir"},
-    {"name": "Spotify", "platform": "lever", "slug": "spotify"},
-    {"name": "Ramp", "platform": "ashby", "slug": "ramp"},
-    {"name": "Notion", "platform": "ashby", "slug": "notion"},
-    {"name": "OpenAI", "platform": "ashby", "slug": "openai"},
-    {"name": "NVIDIA", "platform": "workday", "tenant": "nvidia", "wd": "wd5", "site": "NVIDIAExternalCareerSite"},
-    {"name": "Salesforce", "platform": "workday", "tenant": "salesforce", "wd": "wd12", "site": "External_Career_Site"}
+    {
+      "name": "Simplify",
+      "platform": "simplify",
+      "url": "https://raw.githubusercontent.com/SimplifyJobs/Summer2027-Internships/dev/.github/scripts/listings.json"
+    },
+    {
+      "name": "Stripe",
+      "platform": "greenhouse",
+      "slug": "stripe"
+    },
+    {
+      "name": "Databricks",
+      "platform": "greenhouse",
+      "slug": "databricks"
+    },
+    {
+      "name": "Figma",
+      "platform": "greenhouse",
+      "slug": "figma"
+    },
+    {
+      "name": "Airbnb",
+      "platform": "greenhouse",
+      "slug": "airbnb"
+    },
+    {
+      "name": "Robinhood",
+      "platform": "greenhouse",
+      "slug": "robinhood"
+    },
+    {
+      "name": "Palantir",
+      "platform": "lever",
+      "slug": "palantir"
+    },
+    {
+      "name": "Spotify",
+      "platform": "lever",
+      "slug": "spotify"
+    },
+    {
+      "name": "Ramp",
+      "platform": "ashby",
+      "slug": "ramp"
+    },
+    {
+      "name": "Notion",
+      "platform": "ashby",
+      "slug": "notion"
+    },
+    {
+      "name": "OpenAI",
+      "platform": "ashby",
+      "slug": "openai"
+    },
+    {
+      "name": "NVIDIA",
+      "platform": "workday",
+      "tenant": "nvidia",
+      "wd": "wd5",
+      "site": "NVIDIAExternalCareerSite"
+    },
+    {
+      "name": "Salesforce",
+      "platform": "workday",
+      "tenant": "salesforce",
+      "wd": "wd12",
+      "site": "External_Career_Site"
+    },
+    {
+      "name": "Digs",
+      "platform": "greenhouse",
+      "slug": "digs"
+    },
+    {
+      "name": "Uncountable",
+      "platform": "ashby",
+      "slug": "uncountable"
+    },
+    {
+      "name": "Ellipsis Labs",
+      "platform": "ashby",
+      "slug": "ellipsislabs"
+    },
+    {
+      "name": "Doctors Without Borders",
+      "platform": "greenhouse",
+      "slug": "msfcareers"
+    },
+    {
+      "name": "Aquatic Capital Management",
+      "platform": "greenhouse",
+      "slug": "aquaticcapitalmanagement"
+    },
+    {
+      "name": "Eulerity",
+      "platform": "greenhouse",
+      "slug": "eulerity"
+    },
+    {
+      "name": "Cloudforce",
+      "platform": "lever",
+      "slug": "go-cloudforce"
+    },
+    {
+      "name": "Anthropic",
+      "platform": "greenhouse",
+      "slug": "anthropic"
+    },
+    {
+      "name": "Output Biosciences",
+      "platform": "ashby",
+      "slug": "output"
+    },
+    {
+      "name": "Kognitos",
+      "platform": "ashby",
+      "slug": "Kognitos"
+    },
+    {
+      "name": "Haize Labs",
+      "platform": "greenhouse",
+      "slug": "haizelabs"
+    },
+    {
+      "name": "Rainmaker",
+      "platform": "lever",
+      "slug": "make-rain"
+    },
+    {
+      "name": "Neuralink",
+      "platform": "greenhouse",
+      "slug": "neuralink"
+    },
+    {
+      "name": "Cohere",
+      "platform": "ashby",
+      "slug": "cohere"
+    },
+    {
+      "name": "Base Power",
+      "platform": "ashby",
+      "slug": "base-power"
+    },
+    {
+      "name": "NewsBreak",
+      "platform": "greenhouse",
+      "slug": "newsbreak"
+    },
+    {
+      "name": "Meshy",
+      "platform": "ashby",
+      "slug": "meshy"
+    },
+    {
+      "name": "Clarity Innovations",
+      "platform": "greenhouse",
+      "slug": "clarityinnovates"
+    },
+    {
+      "name": "XPENG Motors",
+      "platform": "greenhouse",
+      "slug": "xpengmotors"
+    },
+    {
+      "name": "Zoox",
+      "platform": "lever",
+      "slug": "zoox"
+    },
+    {
+      "name": "Evolver",
+      "platform": "greenhouse",
+      "slug": "evolver"
+    },
+    {
+      "name": "Anduril",
+      "platform": "greenhouse",
+      "slug": "andurilindustries"
+    },
+    {
+      "name": "Institute of Foundation Models",
+      "platform": "lever",
+      "slug": "ifm-us"
+    },
+    {
+      "name": "Rivian and Volkswagen Group Technologies",
+      "platform": "ashby",
+      "slug": "rivianvw.tech"
+    },
+    {
+      "name": "Applied Intuition",
+      "platform": "ashby",
+      "slug": "applied"
+    },
+    {
+      "name": "Seven Research",
+      "platform": "greenhouse",
+      "slug": "sevenresearch"
+    },
+    {
+      "name": "Bot Auto",
+      "platform": "greenhouse",
+      "slug": "botauto"
+    },
+    {
+      "name": "Verne Robotics",
+      "platform": "ashby",
+      "slug": "Verne"
+    },
+    {
+      "name": "Jane Street",
+      "platform": "greenhouse",
+      "slug": "janestreet"
+    },
+    {
+      "name": "Figure",
+      "platform": "greenhouse",
+      "slug": "figureai"
+    },
+    {
+      "name": "Marshall Wace",
+      "platform": "greenhouse",
+      "slug": "mwinternshipprogram"
+    },
+    {
+      "name": "Pika",
+      "platform": "ashby",
+      "slug": "pika"
+    },
+    {
+      "name": "Toyota Research Institute",
+      "platform": "lever",
+      "slug": "tri"
+    },
+    {
+      "name": "DRW",
+      "platform": "greenhouse",
+      "slug": "drweng"
+    },
+    {
+      "name": "Argmax",
+      "platform": "greenhouse",
+      "slug": "argmax"
+    },
+    {
+      "name": "Five Rings Capital",
+      "platform": "greenhouse",
+      "slug": "fiveringsllc"
+    },
+    {
+      "name": "Constellation Space",
+      "platform": "ashby",
+      "slug": "constellationspace"
+    },
+    {
+      "name": "Chicago Trading Company",
+      "platform": "greenhouse",
+      "slug": "ctccampusboard"
+    },
+    {
+      "name": "NeoCognition",
+      "platform": "ashby",
+      "slug": "neocognition"
+    },
+    {
+      "name": "Quadrillion",
+      "platform": "ashby",
+      "slug": "quadrillion-labs"
+    },
+    {
+      "name": "Gritt Robotics Inc",
+      "platform": "ashby",
+      "slug": "gritt"
+    },
+    {
+      "name": "Architect Labs",
+      "platform": "ashby",
+      "slug": "architect"
+    },
+    {
+      "name": "Spacial AI",
+      "platform": "ashby",
+      "slug": "spacial"
+    },
+    {
+      "name": "Virtu Financial",
+      "platform": "greenhouse",
+      "slug": "virtu"
+    },
+    {
+      "name": "Appian",
+      "platform": "greenhouse",
+      "slug": "appian"
+    },
+    {
+      "name": "PDT Partners",
+      "platform": "greenhouse",
+      "slug": "pdtpartners"
+    },
+    {
+      "name": "Modal",
+      "platform": "ashby",
+      "slug": "modal"
+    },
+    {
+      "name": "Forus",
+      "platform": "ashby",
+      "slug": "forus"
+    },
+    {
+      "name": "k-ID",
+      "platform": "ashby",
+      "slug": "k-id"
+    },
+    {
+      "name": "HPR (Hyannis Port Research)",
+      "platform": "greenhouse",
+      "slug": "hyannisportresearch"
+    },
+    {
+      "name": "Yotta Labs",
+      "platform": "ashby",
+      "slug": "yotta"
+    },
+    {
+      "name": "Etched",
+      "platform": "ashby",
+      "slug": "Etched"
+    },
+    {
+      "name": "SpaceX",
+      "platform": "greenhouse",
+      "slug": "spacex"
+    },
+    {
+      "name": "Valstad",
+      "platform": "ashby",
+      "slug": "valstad"
+    },
+    {
+      "name": "Terranova",
+      "platform": "ashby",
+      "slug": "terranova"
+    },
+    {
+      "name": "The Nuclear Company",
+      "platform": "greenhouse",
+      "slug": "thenuclearcompany"
+    },
+    {
+      "name": "Atoms",
+      "platform": "greenhouse",
+      "slug": "cssmerge"
+    },
+    {
+      "name": "DV Trading",
+      "platform": "greenhouse",
+      "slug": "dvtrading"
+    },
+    {
+      "name": "Vendelux",
+      "platform": "ashby",
+      "slug": "vendelux"
+    },
+    {
+      "name": "Phoebe",
+      "platform": "ashby",
+      "slug": "phoebe-work"
+    },
+    {
+      "name": "Sage",
+      "platform": "greenhouse",
+      "slug": "sage49"
+    },
+    {
+      "name": "Meridian Partners",
+      "platform": "greenhouse",
+      "slug": "morsecorpcoop"
+    },
+    {
+      "name": "Verkada",
+      "platform": "greenhouse",
+      "slug": "verkada"
+    },
+    {
+      "name": "The Voleon Group",
+      "platform": "ashby",
+      "slug": "voleon"
+    },
+    {
+      "name": "Compeer Financial",
+      "platform": "greenhouse",
+      "slug": "compeerfinancial"
+    },
+    {
+      "name": "GrayMatter Robotics",
+      "platform": "ashby",
+      "slug": "graymatter-robotics"
+    },
+    {
+      "name": "WhiteWater Midstream",
+      "platform": "greenhouse",
+      "slug": "whitewatermidstream"
+    },
+    {
+      "name": "Realm",
+      "platform": "ashby",
+      "slug": "realmalliance"
+    },
+    {
+      "name": "TELUS Digital",
+      "platform": "ashby",
+      "slug": "telus-digital"
+    },
+    {
+      "name": "Fab2",
+      "platform": "ashby",
+      "slug": "fab2"
+    },
+    {
+      "name": "Northwood Space",
+      "platform": "ashby",
+      "slug": "NorthwoodSpace"
+    },
+    {
+      "name": "Integra FEC",
+      "platform": "greenhouse",
+      "slug": "integrainterns"
+    },
+    {
+      "name": "Major League Baseball",
+      "platform": "greenhouse",
+      "slug": "baltimoreorioles"
+    },
+    {
+      "name": "Pluralis Research",
+      "platform": "ashby",
+      "slug": "pluralis-research"
+    },
+    {
+      "name": "Sierra",
+      "platform": "ashby",
+      "slug": "Sierra"
+    },
+    {
+      "name": "Perpay",
+      "platform": "greenhouse",
+      "slug": "perpay"
+    },
+    {
+      "name": "Valon",
+      "platform": "ashby",
+      "slug": "Valon"
+    },
+    {
+      "name": "Cheiron",
+      "platform": "ashby",
+      "slug": "cheiron"
+    },
+    {
+      "name": "Armadin",
+      "platform": "ashby",
+      "slug": "armadin"
+    },
+    {
+      "name": "Hermeus",
+      "platform": "lever",
+      "slug": "hermeus"
+    },
+    {
+      "name": "Hadrian",
+      "platform": "ashby",
+      "slug": "hadrian-automation"
+    },
+    {
+      "name": "National Information Solutions Cooperative",
+      "platform": "greenhouse",
+      "slug": "testnisc"
+    },
+    {
+      "name": "Dynamic Catholic",
+      "platform": "lever",
+      "slug": "dynamiccatholic"
+    },
+    {
+      "name": "Faraday Future",
+      "platform": "greenhouse",
+      "slug": "faradayfuture"
+    },
+    {
+      "name": "Dexmate",
+      "platform": "ashby",
+      "slug": "dexmate"
+    },
+    {
+      "name": "Odys Aviation",
+      "platform": "ashby",
+      "slug": "odys-aviation"
+    },
+    {
+      "name": "Skydio",
+      "platform": "ashby",
+      "slug": "skydio"
+    },
+    {
+      "name": "Garner Health",
+      "platform": "greenhouse",
+      "slug": "garnerhealth"
+    },
+    {
+      "name": "Schonfeld",
+      "platform": "greenhouse",
+      "slug": "schonfeld"
+    },
+    {
+      "name": "Kodiak Robotics",
+      "platform": "greenhouse",
+      "slug": "kodiak"
+    },
+    {
+      "name": "ConductorAI",
+      "platform": "ashby",
+      "slug": "conductorai"
+    },
+    {
+      "name": "Eudia",
+      "platform": "greenhouse",
+      "slug": "eudia"
+    },
+    {
+      "name": "Viam",
+      "platform": "greenhouse",
+      "slug": "viamrobotics"
+    },
+    {
+      "name": "Syska Hennessy Group",
+      "platform": "greenhouse",
+      "slug": "syskahennessy"
+    },
+    {
+      "name": "Flagship Pioneering",
+      "platform": "greenhouse",
+      "slug": "fspco-op012325"
+    },
+    {
+      "name": "Allen Control Systems",
+      "platform": "ashby",
+      "slug": "allen-control-systems"
+    },
+    {
+      "name": "Talos",
+      "platform": "ashby",
+      "slug": "Talos-Trading"
+    },
+    {
+      "name": "AnaVation",
+      "platform": "lever",
+      "slug": "anavationllc"
+    },
+    {
+      "name": "Protective Life",
+      "platform": "lever",
+      "slug": "protective"
+    },
+    {
+      "name": "Saronic",
+      "platform": "ashby",
+      "slug": "saronic"
+    },
+    {
+      "name": "Barnes & Thornburg",
+      "platform": "ashby",
+      "slug": "barnes"
+    },
+    {
+      "name": "Interplay",
+      "platform": "ashby",
+      "slug": "interplay"
+    },
+    {
+      "name": "Crest Industries",
+      "platform": "lever",
+      "slug": "crestoperations"
+    },
+    {
+      "name": "Pacific Fusion",
+      "platform": "greenhouse",
+      "slug": "pacificfusion"
+    },
+    {
+      "name": "Shield AI",
+      "platform": "lever",
+      "slug": "shieldai"
+    },
+    {
+      "name": "Tanium",
+      "platform": "greenhouse",
+      "slug": "tanium"
+    },
+    {
+      "name": "Baidu USA",
+      "platform": "greenhouse",
+      "slug": "baidu"
+    },
+    {
+      "name": "Xcimer Energy",
+      "platform": "lever",
+      "slug": "xcimer"
+    },
+    {
+      "name": "MegazoneCloud",
+      "platform": "ashby",
+      "slug": "megazone"
+    },
+    {
+      "name": "ibotta",
+      "platform": "ashby",
+      "slug": "ibotta"
+    },
+    {
+      "name": "DiDi Global",
+      "platform": "greenhouse",
+      "slug": "didi"
+    },
+    {
+      "name": "Stand Together",
+      "platform": "lever",
+      "slug": "standtogether"
+    },
+    {
+      "name": "Klaviyo",
+      "platform": "greenhouse",
+      "slug": "klaviyocampus"
+    },
+    {
+      "name": "National Life",
+      "platform": "greenhouse",
+      "slug": "nationallifeinsurancecompany"
+    },
+    {
+      "name": "SingleStore",
+      "platform": "greenhouse",
+      "slug": "singlestore"
+    },
+    {
+      "name": "Charta Health",
+      "platform": "ashby",
+      "slug": "chartahealth"
+    },
+    {
+      "name": "Cyvl",
+      "platform": "ashby",
+      "slug": "cyvl"
+    },
+    {
+      "name": "Pace",
+      "platform": "ashby",
+      "slug": "withpace"
+    },
+    {
+      "name": "Workshop",
+      "platform": "greenhouse",
+      "slug": "workshop"
+    },
+    {
+      "name": "DoorDash",
+      "platform": "greenhouse",
+      "slug": "doordashusa"
+    },
+    {
+      "name": "Rilla",
+      "platform": "ashby",
+      "slug": "rilla"
+    },
+    {
+      "name": "Bedrock Robotics",
+      "platform": "ashby",
+      "slug": "bedrock-robotics"
+    },
+    {
+      "name": "Gecko Robotics",
+      "platform": "ashby",
+      "slug": "gecko-robotics"
+    },
+    {
+      "name": "Relay",
+      "platform": "greenhouse",
+      "slug": "relaypro"
+    },
+    {
+      "name": "EQT Corporation",
+      "platform": "greenhouse",
+      "slug": "eqtcorporation"
+    },
+    {
+      "name": "Clockwork Systems",
+      "platform": "greenhouse",
+      "slug": "clockworksystems"
+    },
+    {
+      "name": "Kitware",
+      "platform": "lever",
+      "slug": "kitware"
+    },
+    {
+      "name": "CoVar",
+      "platform": "greenhouse",
+      "slug": "covar"
+    },
+    {
+      "name": "Amperesand",
+      "platform": "greenhouse",
+      "slug": "amperesand"
+    },
+    {
+      "name": "Acron Aviation",
+      "platform": "lever",
+      "slug": "acronaviation"
+    },
+    {
+      "name": "The Brattle Group",
+      "platform": "greenhouse",
+      "slug": "thebrattlegroup"
+    },
+    {
+      "name": "Collinear AI",
+      "platform": "ashby",
+      "slug": "collinear-ai"
+    },
+    {
+      "name": "Geneva Trading",
+      "platform": "greenhouse",
+      "slug": "genevatrading"
+    },
+    {
+      "name": "ONE Finance",
+      "platform": "ashby",
+      "slug": "oneapp"
+    },
+    {
+      "name": "Cowboy Space",
+      "platform": "ashby",
+      "slug": "cowboyspace"
+    },
+    {
+      "name": "Lean TECHniques",
+      "platform": "ashby",
+      "slug": "leantechniques"
+    },
+    {
+      "name": "Vital Lyfe",
+      "platform": "ashby",
+      "slug": "vital-lyfe"
+    },
+    {
+      "name": "ZipRecruiter",
+      "platform": "greenhouse",
+      "slug": "ziprecruiter"
+    },
+    {
+      "name": "Qumulo",
+      "platform": "ashby",
+      "slug": "qumulo"
+    },
+    {
+      "name": "Mill",
+      "platform": "greenhouse",
+      "slug": "mill"
+    },
+    {
+      "name": "Brightstar.AI",
+      "platform": "ashby",
+      "slug": "brightstar-ai"
+    },
+    {
+      "name": "Genesis Molecular AI",
+      "platform": "ashby",
+      "slug": "genesis-molecular-ai"
+    },
+    {
+      "name": "Reflect Orbital",
+      "platform": "ashby",
+      "slug": "reflect-orbital"
+    },
+    {
+      "name": "Aevex Aerospace",
+      "platform": "greenhouse",
+      "slug": "aevexaerospace"
+    },
+    {
+      "name": "BGE",
+      "platform": "greenhouse",
+      "slug": "bgeinc"
+    },
+    {
+      "name": "Neighbor",
+      "platform": "lever",
+      "slug": "neighbor"
+    },
+    {
+      "name": "Cloudflare",
+      "platform": "greenhouse",
+      "slug": "cloudflare"
+    },
+    {
+      "name": "Rhoda AI",
+      "platform": "ashby",
+      "slug": "rhoda-ai"
+    },
+    {
+      "name": "Plot Technologies",
+      "platform": "ashby",
+      "slug": "plot"
+    },
+    {
+      "name": "AMCA",
+      "platform": "greenhouse",
+      "slug": "amca"
+    },
+    {
+      "name": "GenScript",
+      "platform": "greenhouse",
+      "slug": "genscript"
+    },
+    {
+      "name": "Dandy",
+      "platform": "ashby",
+      "slug": "dandy"
+    },
+    {
+      "name": "Varda Space",
+      "platform": "greenhouse",
+      "slug": "vardaspace"
+    },
+    {
+      "name": "Datacor",
+      "platform": "greenhouse",
+      "slug": "datacor"
+    },
+    {
+      "name": "Point72",
+      "platform": "greenhouse",
+      "slug": "point72"
+    },
+    {
+      "name": "QuEra Computing",
+      "platform": "greenhouse",
+      "slug": "queracomputinginc"
+    },
+    {
+      "name": "Range",
+      "platform": "ashby",
+      "slug": "range"
+    },
+    {
+      "name": "Profluent",
+      "platform": "greenhouse",
+      "slug": "profluent"
+    },
+    {
+      "name": "ShopBack",
+      "platform": "lever",
+      "slug": "shopback-2"
+    },
+    {
+      "name": "xAI",
+      "platform": "greenhouse",
+      "slug": "xai"
+    },
+    {
+      "name": "Arc",
+      "platform": "greenhouse",
+      "slug": "arcboatcompany"
+    },
+    {
+      "name": "Auctor",
+      "platform": "ashby",
+      "slug": "auctor"
+    },
+    {
+      "name": "Pangram Labs",
+      "platform": "ashby",
+      "slug": "pangramlabs"
+    },
+    {
+      "name": "Found Energy",
+      "platform": "greenhouse",
+      "slug": "foundenergy"
+    },
+    {
+      "name": "Astera Labs",
+      "platform": "greenhouse",
+      "slug": "asteraearlycareer2027"
+    },
+    {
+      "name": "Judi Health",
+      "platform": "greenhouse",
+      "slug": "judihealth"
+    },
+    {
+      "name": "Cadence Solutions",
+      "platform": "greenhouse",
+      "slug": "solutions"
+    },
+    {
+      "name": "Pure Storage",
+      "platform": "greenhouse",
+      "slug": "purestorage"
+    },
+    {
+      "name": "Courier Health",
+      "platform": "greenhouse",
+      "slug": "courierhealth"
+    },
+    {
+      "name": "Sigma Computing",
+      "platform": "greenhouse",
+      "slug": "sigmacomputing"
+    },
+    {
+      "name": "Tenstorrent",
+      "platform": "greenhouse",
+      "slug": "tenstorrentuniversity"
+    },
+    {
+      "name": "Rugged Robotics",
+      "platform": "greenhouse",
+      "slug": "ruggedrobotics"
+    },
+    {
+      "name": "GenBio AI",
+      "platform": "lever",
+      "slug": "genbio"
+    },
+    {
+      "name": "SoloPulse",
+      "platform": "lever",
+      "slug": "solopulseco"
+    },
+    {
+      "name": "Viget",
+      "platform": "lever",
+      "slug": "viget"
+    },
+    {
+      "name": "Later",
+      "platform": "greenhouse",
+      "slug": "later"
+    },
+    {
+      "name": "Capstone Investment Advisors",
+      "platform": "greenhouse",
+      "slug": "capstoneinvestmentadvisors"
+    },
+    {
+      "name": "Arcesium",
+      "platform": "greenhouse",
+      "slug": "arcesiumllc"
+    },
+    {
+      "name": "GCM Grosvenor",
+      "platform": "greenhouse",
+      "slug": "gcmgrosvenor"
+    },
+    {
+      "name": "Azul Systems",
+      "platform": "lever",
+      "slug": "azul"
+    },
+    {
+      "name": "Brooks Running",
+      "platform": "lever",
+      "slug": "brooksrunning"
+    },
+    {
+      "name": "Groma",
+      "platform": "greenhouse",
+      "slug": "groma"
+    },
+    {
+      "name": "Field AI",
+      "platform": "lever",
+      "slug": "field-ai"
+    },
+    {
+      "name": "Wikimedia Foundation",
+      "platform": "greenhouse",
+      "slug": "wikimedia"
+    },
+    {
+      "name": "Muon Space",
+      "platform": "greenhouse",
+      "slug": "muonspace"
+    },
+    {
+      "name": "Duolingo",
+      "platform": "greenhouse",
+      "slug": "duolingounirecruitment"
+    },
+    {
+      "name": "Waabi",
+      "platform": "lever",
+      "slug": "waabi"
+    },
+    {
+      "name": "Pattern",
+      "platform": "lever",
+      "slug": "pattern"
+    },
+    {
+      "name": "AgZen",
+      "platform": "ashby",
+      "slug": "agzen"
+    },
+    {
+      "name": "Bracebridge Capital",
+      "platform": "greenhouse",
+      "slug": "bracebridgecapital"
+    },
+    {
+      "name": "The Allen Institute for AI",
+      "platform": "greenhouse",
+      "slug": "thealleninstitute"
+    },
+    {
+      "name": "Legend Biotech",
+      "platform": "greenhouse",
+      "slug": "legendcareers"
+    },
+    {
+      "name": "Braze",
+      "platform": "greenhouse",
+      "slug": "braze"
+    },
+    {
+      "name": "Amplify",
+      "platform": "ashby",
+      "slug": "amplify"
+    },
+    {
+      "name": "Insomniac Games",
+      "platform": "greenhouse",
+      "slug": "insomniac"
+    },
+    {
+      "name": "Patreon",
+      "platform": "ashby",
+      "slug": "patreon"
+    },
+    {
+      "name": "Inversion Space",
+      "platform": "greenhouse",
+      "slug": "inversionspace"
+    },
+    {
+      "name": "Scale AI",
+      "platform": "greenhouse",
+      "slug": "scaleai"
+    },
+    {
+      "name": "Nubank",
+      "platform": "ashby",
+      "slug": "nubank"
+    },
+    {
+      "name": "Horizon Industries",
+      "platform": "greenhouse",
+      "slug": "horizonindustrieslimited"
+    },
+    {
+      "name": "The New York Times",
+      "platform": "greenhouse",
+      "slug": "thenewyorktimes"
+    },
+    {
+      "name": "Metamorphic",
+      "platform": "ashby",
+      "slug": "metamorphic"
+    },
+    {
+      "name": "DriveWealth",
+      "platform": "greenhouse",
+      "slug": "drivewealth"
+    },
+    {
+      "name": "FSH Technologies",
+      "platform": "ashby",
+      "slug": "FSH"
+    },
+    {
+      "name": "Massachusetts School Building Authority",
+      "platform": "lever",
+      "slug": "massschoolbuildings"
+    },
+    {
+      "name": "Trace3",
+      "platform": "greenhouse",
+      "slug": "trace3"
+    },
+    {
+      "name": "Metalenz",
+      "platform": "ashby",
+      "slug": "metalenz"
+    },
+    {
+      "name": "Analytic Partners",
+      "platform": "lever",
+      "slug": "analyticpartners"
+    },
+    {
+      "name": "OpenSesame",
+      "platform": "greenhouse",
+      "slug": "opensesame"
+    },
+    {
+      "name": "AMEND Consulting",
+      "platform": "greenhouse",
+      "slug": "amendconsulting"
+    },
+    {
+      "name": "Simbe Robotics",
+      "platform": "lever",
+      "slug": "SimbeRobotics"
+    },
+    {
+      "name": "Trace Labs",
+      "platform": "ashby",
+      "slug": "tracelabs"
+    },
+    {
+      "name": "ID.me",
+      "platform": "greenhouse",
+      "slug": "idmeuniversityrecruiting"
+    },
+    {
+      "name": "Linkup",
+      "platform": "ashby",
+      "slug": "linkup"
+    },
+    {
+      "name": "Lila Sciences",
+      "platform": "greenhouse",
+      "slug": "lilasciences"
+    },
+    {
+      "name": "Hive Financial Systems",
+      "platform": "greenhouse",
+      "slug": "hivefinancialsystems"
+    },
+    {
+      "name": "Saviynt",
+      "platform": "lever",
+      "slug": "saviynt"
+    },
+    {
+      "name": "Normal Computing",
+      "platform": "ashby",
+      "slug": "normalcomputing"
+    },
+    {
+      "name": "Commonwealth Fusion Systems",
+      "platform": "lever",
+      "slug": "cfsenergy"
+    },
+    {
+      "name": "42dot",
+      "platform": "ashby",
+      "slug": "42dot"
+    },
+    {
+      "name": "ACLU Kentucky",
+      "platform": "greenhouse",
+      "slug": "acluinternships"
+    },
+    {
+      "name": "Hyphenate",
+      "platform": "ashby",
+      "slug": "hyphenate"
+    },
+    {
+      "name": "FUTO",
+      "platform": "lever",
+      "slug": "futo-org"
+    },
+    {
+      "name": "Old Mission",
+      "platform": "ashby",
+      "slug": "old-mission-capital"
+    },
+    {
+      "name": "Bridge Neurotech",
+      "platform": "ashby",
+      "slug": "bridgeneurotech"
+    },
+    {
+      "name": "Powertown",
+      "platform": "ashby",
+      "slug": "powertown"
+    },
+    {
+      "name": "Integrate",
+      "platform": "ashby",
+      "slug": "integrate"
+    },
+    {
+      "name": "Zus Health",
+      "platform": "ashby",
+      "slug": "zus-health"
+    },
+    {
+      "name": "Scout AI",
+      "platform": "ashby",
+      "slug": "scout-ai"
+    },
+    {
+      "name": "Samsung",
+      "platform": "greenhouse",
+      "slug": "samsungsemiconductor"
+    },
+    {
+      "name": "Pramaana Labs",
+      "platform": "ashby",
+      "slug": "pramaana-labs"
+    },
+    {
+      "name": "CAMS",
+      "platform": "lever",
+      "slug": "camstex"
+    },
+    {
+      "name": "Quadric",
+      "platform": "ashby",
+      "slug": "quadric"
+    },
+    {
+      "name": "Axiom Math",
+      "platform": "ashby",
+      "slug": "axiommath"
+    },
+    {
+      "name": "Latent Defense",
+      "platform": "ashby",
+      "slug": "latent"
+    },
+    {
+      "name": "RosaicLabs",
+      "platform": "lever",
+      "slug": "rosaiclabs"
+    },
+    {
+      "name": "Sycamore",
+      "platform": "ashby",
+      "slug": "sycamore"
+    },
+    {
+      "name": "SharkNinja",
+      "platform": "greenhouse",
+      "slug": "sharkninjaoperatingllc"
+    },
+    {
+      "name": "Subtotal",
+      "platform": "ashby",
+      "slug": "subtotal"
+    },
+    {
+      "name": "New York ISO",
+      "platform": "greenhouse",
+      "slug": "nyisocoops"
+    },
+    {
+      "name": "USAFacts",
+      "platform": "greenhouse",
+      "slug": "usafacts"
+    },
+    {
+      "name": "Samsung Research America",
+      "platform": "greenhouse",
+      "slug": "samsungresearchamericainternship"
+    },
+    {
+      "name": "Quantiq",
+      "platform": "greenhouse",
+      "slug": "quantiq"
+    },
+    {
+      "name": "Qube Research & Technologies",
+      "platform": "greenhouse",
+      "slug": "quberesearchandtechnologies"
+    },
+    {
+      "name": "Two Six Technologies",
+      "platform": "greenhouse",
+      "slug": "twosixtechnologies"
+    },
+    {
+      "name": "OneEthos",
+      "platform": "greenhouse",
+      "slug": "oneethos"
+    },
+    {
+      "name": "Crystal Dynamics",
+      "platform": "greenhouse",
+      "slug": "crystaldynamics"
+    },
+    {
+      "name": "Garda Capital Partners",
+      "platform": "greenhouse",
+      "slug": "gardacp"
+    },
+    {
+      "name": "Genius AI",
+      "platform": "ashby",
+      "slug": "geniusai"
+    },
+    {
+      "name": "C3.ai",
+      "platform": "greenhouse",
+      "slug": "c3ascend"
+    },
+    {
+      "name": "Stratolaunch",
+      "platform": "greenhouse",
+      "slug": "stratolaunch"
+    },
+    {
+      "name": "Vestmark",
+      "platform": "greenhouse",
+      "slug": "internrecruiting"
+    },
+    {
+      "name": "Voyager Technologies",
+      "platform": "greenhouse",
+      "slug": "voyagertechnologiesinc"
+    },
+    {
+      "name": "AtriCure",
+      "platform": "greenhouse",
+      "slug": "co-op_intern"
+    },
+    {
+      "name": "Fussball Club Cincinnati LLC (\u201cFC Cincinnati\u201d)",
+      "platform": "greenhouse",
+      "slug": "fccincinnati"
+    },
+    {
+      "name": "Protagonist",
+      "platform": "greenhouse",
+      "slug": "protagonist"
+    },
+    {
+      "name": "Cartesian Systems",
+      "platform": "greenhouse",
+      "slug": "cartesiansystems"
+    },
+    {
+      "name": "Farmers Mutual Hail",
+      "platform": "greenhouse",
+      "slug": "farmersmutualhailinsurancecompany"
+    },
+    {
+      "name": "AiDash",
+      "platform": "greenhouse",
+      "slug": "aidashinc"
+    },
+    {
+      "name": "NextToken",
+      "platform": "ashby",
+      "slug": "nexttoken"
+    },
+    {
+      "name": "Strada Education Foundation",
+      "platform": "lever",
+      "slug": "stradaeducation"
+    },
+    {
+      "name": "Divergent Technologies",
+      "platform": "greenhouse",
+      "slug": "divergent"
+    },
+    {
+      "name": "Firework",
+      "platform": "lever",
+      "slug": "fireworkhq"
+    },
+    {
+      "name": "Morph Labs",
+      "platform": "greenhouse",
+      "slug": "morph"
+    },
+    {
+      "name": "ParetoHealth",
+      "platform": "greenhouse",
+      "slug": "paretocaptiveservicesllc"
+    },
+    {
+      "name": "Toshiba Global Commerce Solutions",
+      "platform": "greenhouse",
+      "slug": "toshibaglobalcommercesolutions"
+    },
+    {
+      "name": "GenMD",
+      "platform": "ashby",
+      "slug": "genmd"
+    },
+    {
+      "name": "REGENT",
+      "platform": "ashby",
+      "slug": "regent"
+    },
+    {
+      "name": "Jomboy Media",
+      "platform": "greenhouse",
+      "slug": "jomboymedia"
+    },
+    {
+      "name": "Nex",
+      "platform": "greenhouse",
+      "slug": "nex"
+    },
+    {
+      "name": "RoboForce",
+      "platform": "greenhouse",
+      "slug": "roboforce"
+    },
+    {
+      "name": "Logiqal",
+      "platform": "ashby",
+      "slug": "logiqal"
+    },
+    {
+      "name": "SK hynix",
+      "platform": "greenhouse",
+      "slug": "skhynixmemorysolutionsamericainc"
+    },
+    {
+      "name": "Hearst",
+      "platform": "greenhouse",
+      "slug": "hearst"
+    },
+    {
+      "name": "Lumbermen's",
+      "platform": "greenhouse",
+      "slug": "lumbermens"
+    },
+    {
+      "name": "HoYoverse",
+      "platform": "ashby",
+      "slug": "hoyoverse"
+    },
+    {
+      "name": "Tinder",
+      "platform": "lever",
+      "slug": "matchgroup"
+    },
+    {
+      "name": "Deeplocal",
+      "platform": "greenhouse",
+      "slug": "deeplocal"
+    },
+    {
+      "name": "Machina Cognita Technologies",
+      "platform": "ashby",
+      "slug": "machinacognita"
+    },
+    {
+      "name": "Niural",
+      "platform": "ashby",
+      "slug": "niural"
+    },
+    {
+      "name": "Parspec",
+      "platform": "ashby",
+      "slug": "parspec"
+    },
+    {
+      "name": "Category Labs",
+      "platform": "ashby",
+      "slug": "category-labs"
+    },
+    {
+      "name": "Enova",
+      "platform": "greenhouse",
+      "slug": "enova"
+    },
+    {
+      "name": "Maxinsights",
+      "platform": "ashby",
+      "slug": "maxinsights"
+    },
+    {
+      "name": "Tonic",
+      "platform": "ashby",
+      "slug": "tonicai"
+    },
+    {
+      "name": "Persona AI",
+      "platform": "ashby",
+      "slug": "persona.ai"
+    },
+    {
+      "name": "UiPath",
+      "platform": "ashby",
+      "slug": "uipath"
+    },
+    {
+      "name": "Kasa Living",
+      "platform": "greenhouse",
+      "slug": "kasa"
+    },
+    {
+      "name": "Scout Motors",
+      "platform": "greenhouse",
+      "slug": "scoutmotors"
+    },
+    {
+      "name": "Addepar",
+      "platform": "greenhouse",
+      "slug": "addepar1"
+    },
+    {
+      "name": "Formulary Financial",
+      "platform": "ashby",
+      "slug": "formulary"
+    },
+    {
+      "name": "Woolpert",
+      "platform": "greenhouse",
+      "slug": "woolpert"
+    },
+    {
+      "name": "CARIAD",
+      "platform": "greenhouse",
+      "slug": "cariadinc"
+    },
+    {
+      "name": "StackAV",
+      "platform": "greenhouse",
+      "slug": "stackav"
+    },
+    {
+      "name": "Atalanta",
+      "platform": "ashby",
+      "slug": "atalanta"
+    },
+    {
+      "name": "Aurora Innovation",
+      "platform": "ashby",
+      "slug": "aurora-operations-inc"
+    },
+    {
+      "name": "Minitab",
+      "platform": "greenhouse",
+      "slug": "minitab"
+    },
+    {
+      "name": "Gemini",
+      "platform": "greenhouse",
+      "slug": "gemini"
+    },
+    {
+      "name": "Citi",
+      "platform": "workday",
+      "tenant": "citi",
+      "wd": "wd5",
+      "site": "2",
+      "searches": [
+        "intern",
+        "summer analyst",
+        "early insight",
+        "sophomore"
+      ]
+    },
+    {
+      "name": "Barclays",
+      "platform": "workday",
+      "tenant": "barclays",
+      "wd": "wd3",
+      "site": "External_Career_Site_Barclays",
+      "searches": [
+        "intern",
+        "summer analyst",
+        "early insight",
+        "sophomore"
+      ]
+    },
+    {
+      "name": "BlackRock",
+      "platform": "workday",
+      "tenant": "blackrock",
+      "wd": "wd1",
+      "site": "BlackRock_Professional",
+      "searches": [
+        "intern",
+        "summer analyst",
+        "early insight",
+        "sophomore"
+      ]
+    },
+    {
+      "name": "Capital One",
+      "platform": "workday",
+      "tenant": "capitalone",
+      "wd": "wd12",
+      "site": "Capital_One",
+      "searches": [
+        "intern",
+        "summer analyst",
+        "early insight",
+        "sophomore"
+      ]
+    },
+    {
+      "name": "American Express",
+      "platform": "oracle",
+      "host": "egug.fa.us2.oraclecloud.com",
+      "site": "CX_1",
+      "searches": [
+        "intern",
+        "summer analyst",
+        "early insight",
+        "sophomore"
+      ]
+    },
+    {
+      "name": "JPMorgan Chase",
+      "platform": "oracle",
+      "host": "jpmc.fa.oraclecloud.com",
+      "site": "CX_1001",
+      "searches": [
+        "intern",
+        "summer analyst",
+        "early insight",
+        "sophomore"
+      ]
+    },
+    {
+      "name": "Radix Trading",
+      "platform": "greenhouse",
+      "slug": "radixuniversity"
+    },
+    {
+      "name": "Heron Power",
+      "platform": "ashby",
+      "slug": "heron-power"
+    },
+    {
+      "name": "TransMarket Group",
+      "platform": "greenhouse",
+      "slug": "transmarketgroup"
+    },
+    {
+      "name": "Walleye Capital",
+      "platform": "greenhouse",
+      "slug": "walleyecapital-external-students"
+    },
+    {
+      "name": "Flow Traders",
+      "platform": "greenhouse",
+      "slug": "flowtraders"
+    },
+    {
+      "name": "Voloridge",
+      "platform": "greenhouse",
+      "slug": "voloridgeinvestmentmanagement"
+    },
+    {
+      "name": "Revise Robotics",
+      "platform": "ashby",
+      "slug": "reviserobotics"
+    },
+    {
+      "name": "Anthelion Capital",
+      "platform": "ashby",
+      "slug": "anthelioncap"
+    },
+    {
+      "name": "Belvedere Trading",
+      "platform": "lever",
+      "slug": "belvederetrading"
+    },
+    {
+      "name": "Xantium",
+      "platform": "greenhouse",
+      "slug": "xantium"
+    },
+    {
+      "name": "AXQ Capital",
+      "platform": "greenhouse",
+      "slug": "axq"
+    },
+    {
+      "name": "Rocket Lab USA",
+      "platform": "greenhouse",
+      "slug": "rocketlab"
+    },
+    {
+      "name": "CesiumAstro",
+      "platform": "lever",
+      "slug": "CesiumAstro"
+    },
+    {
+      "name": "Lightmatter",
+      "platform": "greenhouse",
+      "slug": "lightmatter"
+    },
+    {
+      "name": "Antares Nuclear",
+      "platform": "ashby",
+      "slug": "Antares"
+    },
+    {
+      "name": "Harbinger Motors",
+      "platform": "greenhouse",
+      "slug": "harbingermotors"
+    },
+    {
+      "name": "Laminar",
+      "platform": "lever",
+      "slug": "runlaminar"
+    },
+    {
+      "name": "Graviton",
+      "platform": "greenhouse",
+      "slug": "gravitonresearchcapital"
+    },
+    {
+      "name": "Upscale AI",
+      "platform": "lever",
+      "slug": "upscale-ai"
+    },
+    {
+      "name": "Akuna Capital",
+      "platform": "greenhouse",
+      "slug": "akunacapitaloci"
+    },
+    {
+      "name": "Rendezvous Robotics",
+      "platform": "greenhouse",
+      "slug": "rendezvousrobotics"
+    },
+    {
+      "name": "Castelion",
+      "platform": "greenhouse",
+      "slug": "castelioncorporation"
+    },
+    {
+      "name": "SCM",
+      "platform": "greenhouse",
+      "slug": "scmaea"
+    },
+    {
+      "name": "Center for Strategic and International Studies",
+      "platform": "greenhouse",
+      "slug": "centerforstrategicandinternationalstudiesinc"
+    },
+    {
+      "name": "SiTime",
+      "platform": "greenhouse",
+      "slug": "sitimecorporation"
+    },
+    {
+      "name": "Loft Orbital",
+      "platform": "lever",
+      "slug": "loftorbital"
+    },
+    {
+      "name": "Diversified Automation",
+      "platform": "lever",
+      "slug": "diversified-automation"
+    },
+    {
+      "name": "Lunar Energy",
+      "platform": "greenhouse",
+      "slug": "lunarenergy"
+    },
+    {
+      "name": "SESCO",
+      "platform": "greenhouse",
+      "slug": "sesco"
+    },
+    {
+      "name": "The Design Rules Company",
+      "platform": "ashby",
+      "slug": "designrulesco"
+    },
+    {
+      "name": "Pivotal Aero",
+      "platform": "lever",
+      "slug": "pivotal"
+    },
+    {
+      "name": "GSA Capital",
+      "platform": "greenhouse",
+      "slug": "gsacapital"
+    }
   ]
 }

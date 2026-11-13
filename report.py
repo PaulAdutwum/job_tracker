@@ -34,7 +34,7 @@ th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mute
 th[data-dir=asc]::after{content:" \\2191"}th[data-dir=desc]::after{content:" \\2193"}
 tr:last-child td{border-bottom:0}
 a{color:var(--accent);text-decoration:none;font-weight:600}a:hover{text-decoration:underline}
-.co{font-weight:600;white-space:nowrap}.loc{color:var(--muted);max-width:260px}
+.co{font-weight:600;white-space:nowrap}.src{font-weight:400;color:var(--muted);font-size:11px}.loc{color:var(--muted);max-width:260px}
 .when{white-space:nowrap}.when small{color:var(--muted)}.when b{font-weight:600}
 .badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
 .Sponsors{color:var(--yes);background:var(--yes-bg)}.Does{color:var(--no);background:var(--no-bg)}.Not{color:var(--na);background:var(--na-bg)}
@@ -50,6 +50,13 @@ details{margin-top:4px;color:var(--muted);font-size:12px;max-width:340px}summary
   <button class="chip" data-g="win" data-v="72">3 days</button>
   <button class="chip" data-g="win" data-v="168">7 days</button>
   <button class="chip" data-g="win" data-v="">All time</button></div>
+<div class="bar"><span class="label">Section</span>
+  <button class="chip" data-g="sec" data-v="">All</button>
+  <button class="chip" data-g="sec" data-v="swe">SWE</button>
+  <button class="chip" data-g="sec" data-v="quant">Quant</button>
+  <button class="chip" data-g="sec" data-v="finance">Finance</button>
+  <button class="chip" data-g="sec" data-v="hardware">Hardware</button>
+  <button class="chip" data-g="sec" data-v="events">Events &amp; programs</button></div>
 <div class="bar"><span class="label">Location</span>
   <button class="chip" data-g="us" data-v="1">US only</button>
   <button class="chip" data-g="us" data-v="">All countries</button></div>
@@ -66,7 +73,8 @@ details{margin-top:4px;color:var(--muted);font-size:12px;max-width:340px}summary
 <script>
 const JOBS = __DATA__;
 const GENERATED = "__GENERATED__";
-const state = {win: "24", us: "1", sp: ""};
+const state = {win: "24", us: "1", sp: "", sec: ""};
+const SECTION = {swe: "SWE", quant: "Quant", finance: "Finance", hardware: "Hardware", events: "Event / program", other: "Other"};
 let sortKey = "posted", sortDir = -1;
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const dateOnly = iso => iso && iso.length === 10;  // Workday gives a date with no time
@@ -97,6 +105,7 @@ function render(){
   const q = document.getElementById("q").value.toLowerCase();
   const list = JOBS.filter(j =>
       (!state.us || j.us) &&
+      (state.sec ? j.section === state.sec : j.section !== "other") &&
       (!state.win || ageHours(j.posted) <= +state.win) &&
       (!state.sp || j.sponsorship === state.sp) &&
       (j.title + " " + j.company + " " + j.location).toLowerCase().includes(q))
@@ -104,7 +113,7 @@ function render(){
       ? (Math.min(ageHours(a.posted), 1e9) - Math.min(ageHours(b.posted), 1e9)) * -sortDir  // smaller age = newer
       : String(a[sortKey] ?? "").localeCompare(String(b[sortKey] ?? "")) * sortDir);
   document.getElementById("rows").innerHTML = list.map(j => `<tr>
-    <td class="co">${esc(j.company)}</td>
+    <td class="co">${esc(j.company)}<br><small class="src">${esc(SECTION[j.section] || "")} · ${j.platform === "simplify" ? "via Simplify" : "company site"}</small></td>
     <td><a href="${esc(j.url)}" target="_blank" rel="noopener">${esc(j.title)}</a>${isNew(j) ? '<span class="badge new">NEW</span>' : ""}</td>
     <td class="loc">${esc(j.location)}</td>
     <td class="when">${when(j.posted)}</td>
@@ -132,8 +141,9 @@ sync(); render();
 
 def write(jobs):
     from db import now
-    rows = [{k: j.get(k) for k in ("company", "title", "location", "url", "us", "posted", "first_seen",
-                                   "sponsorship", "sponsorship_evidence")} for j in jobs]
+    rows = [{k: j.get(k) for k in ("company", "platform", "title", "location", "url", "us", "posted",
+                                   "first_seen", "sponsorship", "sponsorship_evidence", "section")}
+            for j in jobs]
     data = json.dumps(rows).replace("</", "<\\/")  # keep job text from closing the <script> tag
     REPORT_PATH.write_text(PAGE.replace("__DATA__", data).replace("__GENERATED__", now()))
 
