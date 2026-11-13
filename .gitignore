@@ -1,0 +1,7 @@
+.venv/
+jobs.db
+jobs.html
+check.log
+__pycache__/
+.check.lock
+_site/
