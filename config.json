@@ -1,0 +1,21 @@
+{
+  "filters": {
+    "include": ["\\bintern(ship)?s?\\b", "\\bco-?op\\b"],
+    "exclude": ["\\bph\\.?d\\b"],
+    "us_only": true
+  },
+  "companies": [
+    {"name": "Stripe", "platform": "greenhouse", "slug": "stripe"},
+    {"name": "Databricks", "platform": "greenhouse", "slug": "databricks"},
+    {"name": "Figma", "platform": "greenhouse", "slug": "figma"},
+    {"name": "Airbnb", "platform": "greenhouse", "slug": "airbnb"},
+    {"name": "Robinhood", "platform": "greenhouse", "slug": "robinhood"},
+    {"name": "Palantir", "platform": "lever", "slug": "palantir"},
+    {"name": "Spotify", "platform": "lever", "slug": "spotify"},
+    {"name": "Ramp", "platform": "ashby", "slug": "ramp"},
+    {"name": "Notion", "platform": "ashby", "slug": "notion"},
+    {"name": "OpenAI", "platform": "ashby", "slug": "openai"},
+    {"name": "NVIDIA", "platform": "workday", "tenant": "nvidia", "wd": "wd5", "site": "NVIDIAExternalCareerSite"},
+    {"name": "Salesforce", "platform": "workday", "tenant": "salesforce", "wd": "wd12", "site": "External_Career_Site"}
+  ]
+}

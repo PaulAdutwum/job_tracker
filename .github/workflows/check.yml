@@ -1,0 +1,64 @@
+name: Check for new internships
+
+on:
+  schedule:
+    - cron: "7,37 * * * *"  # every 30 min; off the top of the hour, when GitHub's scheduler is busiest
+  workflow_dispatch:        # adds a "Run workflow" button for manual checks
+
+# Never run two checks at once (same reason as the lock in check.py).
+concurrency:
+  group: check
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      # The job database lives in the Actions cache between runs, so the tracker
+      # remembers which postings it has already seen.
+      - uses: actions/cache/restore@v4
+        with:
+          path: jobs.db
+          key: jobs-db-${{ github.run_id }}
+          restore-keys: jobs-db-
+
+      - run: python check.py
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: jobs.db
+          key: jobs-db-${{ github.run_id }}
+
+      - run: mkdir _site && cp jobs.html _site/index.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  publish:
+    needs: check
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4
