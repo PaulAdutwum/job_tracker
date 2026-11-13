@@ -102,27 +102,27 @@ def fetch_workday(c, client):
     # which pages 20 at a time and only reports "total" on the first page.
     base = f"https://{c['tenant']}.{c['wd']}.myworkdayjobs.com"
     api = f"{base}/wday/cxs/{c['tenant']}/{c['site']}"
+    def get_page(search, offset):
+        r = client.post(f"{api}/jobs", json={"appliedFacets": {}, "limit": WORKDAY_PAGE_SIZE,
+                                             "offset": offset, "searchText": search})
+        r.raise_for_status()
+        return r.json()
+
     jobs = {}
     for search in c.get("searches", ["intern"]):  # banks say "summer analyst" rather than "intern"
-        offset, total = 0, None
-        while offset < WORKDAY_MAX_JOBS:
-            r = client.post(f"{api}/jobs", json={"appliedFacets": {}, "limit": WORKDAY_PAGE_SIZE,
-                                                 "offset": offset, "searchText": search})
-            r.raise_for_status()
-            data = r.json()
-            if total is None:
-                total = data.get("total", 0)
-            page = data.get("jobPostings", [])
-            for j in page:
+        first = get_page(search, 0)
+        total = min(first.get("total", 0), WORKDAY_MAX_JOBS)
+        # The first page tells us how many there are, so fetch the rest in parallel.
+        with ThreadPoolExecutor(max_workers=4) as pool:
+            rest = list(pool.map(lambda o: get_page(search, o), range(WORKDAY_PAGE_SIZE, total, WORKDAY_PAGE_SIZE)))
+        for data in [first] + rest:
+            for j in data.get("jobPostings", []):
                 if not j.get("externalPath") or not j.get("title"):
                     continue  # Workday occasionally returns incomplete entries; one shouldn't sink the whole company
                 jobs[j["externalPath"]] = _job(
                     "workday", c["tenant"], j["externalPath"], c["name"], j["title"],
                     j.get("locationsText"), f"{base}/{c['site']}{j['externalPath']}",
                     _workday_relative_date(j.get("postedOn")), None, detail_api=f"{api}{j['externalPath']}")
-            offset += WORKDAY_PAGE_SIZE
-            if not page or offset >= total:
-                break
     return list(jobs.values())
 
 
@@ -240,7 +240,7 @@ def make_client():
 def fetch_all(companies, client):
     """Fetch every company in parallel. Returns (jobs, errors) where errors maps company -> message."""
     jobs, errors = [], {}
-    with ThreadPoolExecutor(max_workers=8) as pool:
+    with ThreadPoolExecutor(max_workers=16) as pool:
         futures = {c["name"]: pool.submit(FETCHERS[c["platform"]], c, client) for c in companies}
         for name, f in futures.items():
             try:

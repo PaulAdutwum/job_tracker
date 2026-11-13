@@ -1813,6 +1813,375 @@
       "name": "GSA Capital",
       "platform": "greenhouse",
       "slug": "gsacapital"
+    },
+    {
+      "name": "Tradeweb",
+      "platform": "oracle",
+      "host": "ecnf.fa.us2.oraclecloud.com",
+      "site": "CX"
+    },
+    {
+      "name": "Trumid",
+      "platform": "greenhouse",
+      "slug": "trumid"
+    },
+    {
+      "name": "IEX",
+      "platform": "greenhouse",
+      "slug": "iex-interns"
+    },
+    {
+      "name": "MEMX",
+      "platform": "greenhouse",
+      "slug": "memx"
+    },
+    {
+      "name": "Octaura",
+      "platform": "greenhouse",
+      "slug": "octaura"
+    },
+    {
+      "name": "Cboe",
+      "platform": "workday",
+      "tenant": "cboe",
+      "wd": "wd1",
+      "site": "External_Career_CBOE",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Nasdaq",
+      "platform": "workday",
+      "tenant": "nasdaq",
+      "wd": "wd1",
+      "site": "Global_External_Site",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Galaxy",
+      "platform": "greenhouse",
+      "slug": "galaxydigitalservices"
+    },
+    {
+      "name": "CME Group",
+      "platform": "workday",
+      "tenant": "cmegroup",
+      "wd": "wd1",
+      "site": "cme_careers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Coinbase",
+      "platform": "greenhouse",
+      "slug": "coinbase"
+    },
+    {
+      "name": "Kalshi",
+      "platform": "greenhouse",
+      "slug": "kalshi"
+    },
+    {
+      "name": "Exegy",
+      "platform": "ashby",
+      "slug": "exegy"
+    },
+    {
+      "name": "EquiLend",
+      "platform": "greenhouse",
+      "slug": "equilend"
+    },
+    {
+      "name": "Clear Street",
+      "platform": "greenhouse",
+      "slug": "clearstreet"
+    },
+    {
+      "name": "Symphony",
+      "platform": "greenhouse",
+      "slug": "symphony"
+    },
+    {
+      "name": "Alpaca",
+      "platform": "greenhouse",
+      "slug": "alpaca"
+    },
+    {
+      "name": "Koyfin",
+      "platform": "ashby",
+      "slug": "koyfin"
+    },
+    {
+      "name": "AlphaSense",
+      "platform": "greenhouse",
+      "slug": "alphasense"
+    },
+    {
+      "name": "Maybern",
+      "platform": "ashby",
+      "slug": "maybern"
+    },
+    {
+      "name": "YipitData",
+      "platform": "greenhouse",
+      "slug": "yipitdata"
+    },
+    {
+      "name": "Databento",
+      "platform": "greenhouse",
+      "slug": "databento"
+    },
+    {
+      "name": "Lucid Motors",
+      "platform": "greenhouse",
+      "slug": "lucidmotors"
+    },
+    {
+      "name": "Sensata Technologies",
+      "platform": "workday",
+      "tenant": "sensata",
+      "wd": "wd1",
+      "site": "Sensata-Careers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "ABB",
+      "platform": "workday",
+      "tenant": "abb",
+      "wd": "wd3",
+      "site": "external_career_page",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "GE Vernova",
+      "platform": "workday",
+      "tenant": "gevernova",
+      "wd": "wd5",
+      "site": "only_confidential_executive_recruiting",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "GE Aerospace",
+      "platform": "workday",
+      "tenant": "geaerospace",
+      "wd": "wd5",
+      "site": "ge_externalsite",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Honeywell",
+      "platform": "oracle",
+      "host": "ibqbjb.fa.ocs.oraclecloud.com",
+      "site": "Honeywell"
+    },
+    {
+      "name": "Rockwell Automation",
+      "platform": "workday",
+      "tenant": "rockwellautomation",
+      "wd": "wd1",
+      "site": "External_Rockwell_Automation",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Emerson",
+      "platform": "oracle",
+      "host": "hdjq.fa.us2.oraclecloud.com",
+      "site": "CX_1"
+    },
+    {
+      "name": "Carrier",
+      "platform": "workday",
+      "tenant": "carrier",
+      "wd": "wd5",
+      "site": "jobs",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Boston Dynamics",
+      "platform": "workday",
+      "tenant": "bostondynamics",
+      "wd": "wd1",
+      "site": "Boston_Dynamics",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Dell Technologies",
+      "platform": "oracle",
+      "host": "iawmqy.fa.ocs.oraclecloud.com",
+      "site": "careers"
+    },
+    {
+      "name": "Texas Instruments",
+      "platform": "oracle",
+      "host": "edbz.fa.us2.oraclecloud.com",
+      "site": "CX"
+    },
+    {
+      "name": "Analog Devices",
+      "platform": "workday",
+      "tenant": "analogdevices",
+      "wd": "wd1",
+      "site": "External",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Coherent",
+      "platform": "oracle",
+      "host": "hcwp.fa.us2.oraclecloud.com",
+      "site": "CX_1"
+    },
+    {
+      "name": "Lumentum",
+      "platform": "workday",
+      "tenant": "lumentum",
+      "wd": "wd5",
+      "site": "LITE",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Ubiquiti",
+      "platform": "greenhouse",
+      "slug": "ubiquiti"
+    },
+    {
+      "name": "Snowflake",
+      "platform": "ashby",
+      "slug": "snowflake"
+    },
+    {
+      "name": "Northrop Grumman",
+      "platform": "workday",
+      "tenant": "ngc",
+      "wd": "wd1",
+      "site": "Northrop_Grumman_External_Site",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "RTX",
+      "platform": "workday",
+      "tenant": "globalhr",
+      "wd": "wd5",
+      "site": "rec_rtx_ext_gateway",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Boeing",
+      "platform": "workday",
+      "tenant": "boeing",
+      "wd": "wd1",
+      "site": "EXTERNAL_CAREERS",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Airbus",
+      "platform": "workday",
+      "tenant": "ag",
+      "wd": "wd3",
+      "site": "Airbus",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "AeroVironment",
+      "platform": "workday",
+      "tenant": "avav",
+      "wd": "wd1",
+      "site": "avav",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Planet Labs",
+      "platform": "greenhouse",
+      "slug": "planetlabs"
+    },
+    {
+      "name": "Spire Global",
+      "platform": "greenhouse",
+      "slug": "spire"
+    },
+    {
+      "name": "Astranis",
+      "platform": "greenhouse",
+      "slug": "astranis"
+    },
+    {
+      "name": "Arcadis",
+      "platform": "oracle",
+      "host": "ebcs.fa.em2.oraclecloud.com",
+      "site": "CX_1"
+    },
+    {
+      "name": "WSP",
+      "platform": "oracle",
+      "host": "emit.fa.ca3.oraclecloud.com",
+      "site": "CX_2001"
+    },
+    {
+      "name": "Becton Dickinson",
+      "platform": "workday",
+      "tenant": "bdx",
+      "wd": "wd1",
+      "site": "EXTERNAL_CAREER_SITE_USA",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
     }
+  ],
+  "ignored_boards": [
+    "greenhouse:bloombergdotorg",
+    "greenhouse:ltx",
+    "greenhouse:momentenergy",
+    "lever:genesis",
+    "lever:kraken",
+    "workday:applebank"
   ]
 }
