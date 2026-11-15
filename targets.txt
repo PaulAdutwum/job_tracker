@@ -170,3 +170,544 @@ Becton Dickinson|BD
 Boston Scientific
 Toshiba
 Dolby|Dolby Laboratories
+
+# Boutique quant trading firms & market makers (NYC first, plus Chicago/elsewhere)
+Ansatz Capital|https://jobs.lever.co/ansatzcapital
+Vatic Investments|Vatic Labs
+Trexquant|TrexQuant Investments
+Evergreen Statistical Trading
+InfiniteQuant
+SQS Trading
+Trillium Trading
+GTS|GTS Securities
+Headlands Technologies|Headlands Tech
+Wintermute
+Flowdesk
+Hudson River Trading|HRT
+Tower Research Capital|Tower Research
+Jump Trading
+Optiver
+IMC Trading|IMC
+Susquehanna International Group|SIG|Susquehanna
+XTX Markets
+Hap Capital|https://jobs.lever.co/hap-capital
+Blackedge Capital|https://boards.greenhouse.io/blackedgecapital
+Maven Securities
+Mako Trading|Mako
+Peak6|PEAK6
+Wolverine Trading|Wolverine
+Valkyrie Trading
+Quantlab
+Hehmeyer
+XR Trading
+Allston Trading
+Simplex Trading
+Group One Trading
+Volant Trading
+Twin Lakes Trading
+Teza Technologies
+Tradebot Systems
+Sun Trading
+Eagle Seven
+Edgehog Trading
+Vivienne Court
+Da Vinci Trading|Da Vinci Derivatives
+Seven Eight Capital
+Jump Crypto
+Cumberland|Cumberland DRW
+B2C2
+GSR|GSR Markets
+Keyrock
+FalconX
+Hidden Road
+Amber Group
+
+# Quant & multi-strategy hedge funds (NYC / CT / Boston)
+Engineers Gate
+Scientech Research
+D. E. Shaw|DE Shaw|The D. E. Shaw Group
+Renaissance Technologies|Renaissance
+Two Sigma
+Millennium|Millennium Management
+Balyasny Asset Management|Balyasny|BAM
+ExodusPoint Capital|ExodusPoint
+Squarepoint Capital|Squarepoint
+Cubist Systematic Strategies|Cubist
+WorldQuant
+AQR Capital Management|AQR
+Man Group
+Bridgewater Associates|Bridgewater
+Arrowstreet Capital|https://arrowstreetcapital.wd5.myworkdayjobs.com/Campus_Careers
+Graham Capital Management|Graham Capital
+Verition Fund Management|Verition
+Hudson Bay Capital
+Jain Global
+Tudor Investment|https://job-boards.greenhouse.io/tudorgroup
+Sculptor Capital|Sculptor
+Elliott Management|Elliott
+Davidson Kempner
+Citadel Securities
+Millburn Ridgefield|Millburn
+Campbell & Company
+G-Research
+TGS Management|TGS
+Weiss Multi-Strategy|Weiss
+Hudson River Trading
+Jericho Capital
+Tiger Global
+Coatue
+Viking Global
+Lone Pine Capital
+Third Point
+Man Numeric|Numeric
+Acadian Asset Management|Acadian
+Kepos Capital
+Headlands
+Bayview Asset Management
+
+# Trading tech, market data & post-trade infrastructure
+QuantConnect
+Baton Systems
+MayStreet
+Clear Street
+Broadridge
+SS&C Technologies|SS&C
+FactSet
+S&P Global
+Moody's|Moodys
+MSCI
+Morningstar
+LSEG|London Stock Exchange Group|Refinitiv
+Kensho
+Bloomberg
+OneChronos
+Proof Trading
+Polymarket
+Ripple
+Circle
+Chainalysis
+Fireblocks
+BitGo
+Paxos
+Anchorage Digital
+Aave|Avara
+Uniswap Labs|Uniswap
+Flashbots
+Jito Labs
+Phantom
+Alchemy
+Consensys
+Chainlink Labs
+
+# NYC fintech & finance-adjacent startups
+Brex
+Mercury
+Plaid
+Betterment
+Wealthfront
+Stash
+Acorns
+Chime
+SoFi
+Affirm
+Marqeta
+Public|Public.com
+Carta
+Bilt Rewards|Bilt
+Melio
+Rho
+Unit
+Modern Treasury
+Column
+Lithic
+Alloy
+Socure
+Persona
+Esusu
+Yieldstreet
+Vise
+Titan
+Hebbia
+Rogo
+Daloopa
+Tegus
+Canoe Intelligence
+Chronograph
+Ledger Investing
+Pipe
+Capchase
+Arc
+Atomic|Atomic Invest
+Orum
+Increase
+Moov
+Bolt
+Payoneer
+Justworks
+Oscar Health
+Flatiron Health
+Zocdoc
+Ro
+Spring Health
+Datadog
+MongoDB
+Squarespace
+Etsy
+Peloton
+Hex
+Retool
+Cockroach Labs
+Temporal|Temporal Technologies
+Glean
+Harvey
+Anysphere|Cursor
+Runway
+Clay
+Hugging Face
+Pinecone
+Grammarly
+Airtable
+Asana
+Pinterest
+Vercel
+Supabase
+Neon
+Rippling
+Deel
+Gusto
+Scale AI
+Mistral AI
+Perplexity
+Cognition
+Sierra
+Decagon
+Abridge
+Ramp
+Mercor
+Brain Co
+Hightouch
+Writer
+Runway ML
+Augment Code
+Replit
+Warp
+Linear
+Graphite
+Browserbase
+Turing
+Fivetran
+dbt Labs
+
+# More NYC boutique prop/MM, systematic funds, trading tech & mid-size banks
+Plaid|https://jobs.ashbyhq.com/plaid
+Quest Partners
+Clearwater Analytics
+360T|360 Treasury Systems
+Guggenheim Partners|Guggenheim
+Jefferies
+TD Securities|Cowen
+Gelber Group
+Consolidated Trading
+Tanius Technology
+Chronos Research
+AlphaSimplex
+Beacon Platform
+Numerix
+SimCorp|Axioma
+Cantor Fitzgerald
+Stifel|Stifel Financial
+Piper Sandler
+Raymond James
+Needham & Company|Needham
+Adaptive Financial Consulting|Adaptive
+3Red Partners|3Red
+SMB Capital
+Kershner Trading Group
+Bitqcode
+One River Asset Management|One River
+Boothbay Fund Management|Boothbay
+Visible Alpha
+Varo|Varo Bank
+
+# Brokerages, retail trading platforms, more quant & NYC tech/AI startups
+Interactive Brokers|IBKR
+Webull
+tastytrade|IG Group
+Tradier
+Apex Fintech Solutions|Apex Fintech
+Forge Global
+Ramiel Capital
+PanAgora|PanAgora Asset Management
+Selene
+Brevan Howard
+DeepFin Research
+The Trade Desk
+Block|Square|Cash App
+Etsy
+JotPsych
+Grow Therapy
+Headway
+Attio
+Nominal
+Precision Neuroscience
+AMD|Advanced Micro Devices
+ElevenLabs
+Vimeo
+
+# NYC prop desks, YC/seed startups, fintech infra, exchanges & NYC tech (batch 4)
+Hold Brothers|Hold Brothers Capital
+T3 Trading Group
+Integra Trade
+Professional Trading Solutions
+Aptino
+X4 Alpha
+Bluefin Capital Management
+Chimera Securities
+Goliath Partners
+Precharm
+Boerboel Trading
+Sumo Capital
+Seven Points Capital
+Summit Securities Group
+Quadrature Capital
+Elk Capital Markets
+G-20 Group
+BHFT|Bluefin High Frequency Trading
+MA Capital
+Spark Investment Management
+QFEX
+Caxton Associates
+Kavout
+Quadeye
+Entropy Trading Group
+Prime Trading
+ACT Group
+OTC Flow
+QCP Capital
+Caladan
+Epoch Capital
+Capital Fund Management|CFM
+Nebula Research
+Giant Steps Capital
+Lucida
+Diameter Capital Partners|Diameter Capital
+HBK Capital Management|HBK
+AllianceBernstein
+DTCC|Depository Trust & Clearing
+TradeStation
+Barchart
+Intelligence Factory
+IRBC
+Ralo
+Fragment
+CarbonAI
+Agentiq
+Mbodi AI
+Blacksmith
+Credal|Credal.ai
+Solve Intelligence
+Hanover Park
+Spade
+Narmi
+Rain Cards|Rain
+CAIS
+Freeport Markets
+Sava Trust Company|Sava
+Fernstone
+Whatnot
+Confido
+Greenboard
+Axle|Axle Insurance
+Encord
+AIOS
+Vestwell
+Anvil
+Slope
+Cardless
+Current
+Stytch
+Sardine
+Jeeves
+Qualcomm
+Match Group|Hinge
+SeatGeek
+Fever
+Adobe
+Weights & Biases|wandb
+NBCUniversal
+Fox Corporation|Fox
+Novig
+Alinea
+Method Financial|Method
+Abacum
+Pluto
+Forage
+Middesk
+Roboflow
+Structured AI
+DiligenceSquared
+Legora
+Margin
+Aspect
+Zip|ZipHQ
+Beam
+Acolite
+Ultra
+Andreessen Horowitz|a16z
+
+# Batch 5: more NYC HFT, brokers/execution, capital-markets software, YC trading & AI startups
+Entec Partners
+Fionics
+US Tiger Securities|Tiger Brokers
+Murex
+ION Group|ION
+Lime Trading|Lime Fintech
+Instinet
+Rosenblatt Securities
+Tourmaline Partners
+Tethys Technology
+BMO Capital Markets|BMO
+Options IT
+Spectre Intelligence
+Prodigy Research
+Arbital
+Instinct
+Selfin
+Coinrule
+Computable
+Andustry
+Circleback
+CTGT
+Garage
+Entangl
+Cercli
+Emerge Career
+LATO
+Interfere
+Pontera
+
+# Batch 6: crypto-quant, YC trading/AI startups, NYC SaaS & health
+Lighthorse
+BlockTower Capital|BlockTower
+Paradigm|Paradigm Connect
+Aardvark Trading
+AlphaGrep
+AYC Fund
+attimet
+Hapi
+marketfeed
+Dex
+Kastle
+RetailReady
+Pulse
+Reacher
+Browser Use
+Aravolta
+SafetyKit
+GloGlo
+FloQast
+Cedar
+Contentful
+Sanity
+
+# Big tech, consumer product & marketplaces (direct boards beat waiting on Simplify)
+Uber
+Lyft
+Snap|Snap Inc
+Netflix
+Instacart
+Discord
+Reddit
+Roblox
+Twilio
+Okta
+Dropbox
+Box
+Atlassian
+HubSpot
+Shopify
+Wayfair
+Chewy
+Nextdoor
+Yelp
+Faire
+Toast
+Samsara
+Benchling
+Flexport
+Gopuff
+Grubhub
+Warby Parker
+Rent the Runway
+Compass
+Tripadvisor
+Expedia|Expedia Group
+Intuit
+PayPal
+Visa
+Mastercard
+Lululemon
+Nike
+Coinbase
+Robinhood
+Instagram
+LinkedIn
+Salesforce
+Adobe
+ServiceNow
+Workday
+Oracle
+IBM
+Cisco
+Intel
+Qualcomm
+Uber Freight
+DoorDash
+Airbnb
+Lyft
+Zillow
+Peloton
+
+# Brokerages, banks & asset managers (incl. E*TRADE via Morgan Stanley)
+Morgan Stanley|E*TRADE|ETRADE
+Charles Schwab|Schwab
+Fidelity Investments|Fidelity
+Vanguard
+BNY|BNY Mellon
+State Street
+Wells Fargo
+Bank of America
+Citizens|Citizens Financial
+Discover|Discover Financial
+Synchrony
+Ally|Ally Financial
+PNC
+Truist
+TD Bank
+Nomura
+Mizuho
+MUFG
+BNP Paribas
+Societe Generale
+Deutsche Bank
+UBS
+HSBC
+RBC|RBC Capital Markets
+Macquarie
+Lazard
+Evercore
+Moelis
+PJT Partners
+Houlihan Lokey
+Blackstone
+KKR
+Apollo|Apollo Global
+Carlyle
+Neuberger Berman
+PIMCO
+T. Rowe Price
+Invesco
+Franklin Templeton
+Nuveen
+Prudential
+MetLife

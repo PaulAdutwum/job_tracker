@@ -48,11 +48,19 @@ def run_check():
             unseen = [j for j in jobs if j["id"] not in known]
             db.backfill_sections(conn, section_of)
 
-            # The same posting can come from a company's own board and from Simplify; keep the direct one.
+            # The same posting can come from a company's own board and from one or more community
+            # lists (Simplify, vanshb03); keep the direct one, else the first list that has it.
             direct = {(j["company"].lower(), j["title"].lower()) for j in jobs if j["platform"] != "simplify"}
             seen_titles = db.known_titles(conn) | direct
-            unseen = [j for j in unseen if j["platform"] != "simplify"
-                      or (j["company"].lower(), j["title"].lower()) not in seen_titles]
+            kept = []
+            for j in unseen:
+                key = (j["company"].lower(), j["title"].lower())
+                if j["platform"] != "simplify":
+                    kept.append(j)
+                elif key not in seen_titles:
+                    seen_titles.add(key)
+                    kept.append(j)
+            unseen = kept
 
             needs_detail = [j for j in unseen if j["description"] is None]
             failed = {}
