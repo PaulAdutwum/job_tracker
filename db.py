@@ -15,15 +15,16 @@ CREATE TABLE IF NOT EXISTS jobs (
     sponsorship TEXT,            -- Sponsors / Does not sponsor / Not specified
     sponsorship_evidence TEXT,   -- the sentence that decided it
     category TEXT,               -- Simplify's role category, when available
-    section TEXT                 -- swe / quant / finance / hardware / events / other (see sections.py)
+    section TEXT,                -- swe / quant / finance / hardware / events / other (see sections.py)
+    baseline INTEGER             -- 1 if recorded on its source's first check (already open, not new)
 );
 CREATE TABLE IF NOT EXISTS companies_seen (name TEXT PRIMARY KEY);
 """
 
 COLUMNS = ["id", "company", "platform", "title", "location", "url", "us", "posted",
-           "first_seen", "sponsorship", "sponsorship_evidence", "category", "section"]
+           "first_seen", "sponsorship", "sponsorship_evidence", "category", "section", "baseline"]
 # Columns added after the first version; older databases get them on connect.
-ADDED_COLUMNS = {"category": "TEXT", "section": "TEXT"}
+ADDED_COLUMNS = {"category": "TEXT", "section": "TEXT", "baseline": "INTEGER"}
 
 
 def connect():
@@ -86,6 +87,8 @@ def save_new_jobs(conn, jobs, fetched_sources):
     recorded silently as a baseline, so you aren't flooded with hundreds of "new" alerts on day one.
     """
     baselined = {r["name"] for r in conn.execute("SELECT name FROM companies_seen")}
+    for j in jobs:
+        j["baseline"] = int(j["source"] not in baselined)
     placeholders = ", ".join(f":{c}" for c in COLUMNS)
     conn.executemany(f"INSERT OR IGNORE INTO jobs ({', '.join(COLUMNS)}) VALUES ({placeholders})",
                      [{c: j.get(c) for c in COLUMNS} for j in jobs])

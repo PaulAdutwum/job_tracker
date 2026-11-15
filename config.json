@@ -25,6 +25,11 @@
       "url": "https://raw.githubusercontent.com/SimplifyJobs/Summer2027-Internships/dev/.github/scripts/listings.json"
     },
     {
+      "name": "vanshb03",
+      "platform": "simplify",
+      "url": "https://raw.githubusercontent.com/vanshb03/Summer2027-Internships/dev/.github/scripts/listings.json"
+    },
+    {
       "name": "Stripe",
       "platform": "greenhouse",
       "slug": "stripe"
@@ -1643,18 +1648,6 @@
       ]
     },
     {
-      "name": "JPMorgan Chase",
-      "platform": "oracle",
-      "host": "jpmc.fa.oraclecloud.com",
-      "site": "CX_1001",
-      "searches": [
-        "intern",
-        "summer analyst",
-        "early insight",
-        "sophomore"
-      ]
-    },
-    {
       "name": "Radix Trading",
       "platform": "greenhouse",
       "slug": "radixuniversity"
@@ -1813,12 +1806,6 @@
       "name": "GSA Capital",
       "platform": "greenhouse",
       "slug": "gsacapital"
-    },
-    {
-      "name": "Tradeweb",
-      "platform": "oracle",
-      "host": "ecnf.fa.us2.oraclecloud.com",
-      "site": "CX"
     },
     {
       "name": "Trumid",
@@ -1988,12 +1975,6 @@
       ]
     },
     {
-      "name": "Honeywell",
-      "platform": "oracle",
-      "host": "ibqbjb.fa.ocs.oraclecloud.com",
-      "site": "Honeywell"
-    },
-    {
       "name": "Rockwell Automation",
       "platform": "workday",
       "tenant": "rockwellautomation",
@@ -2003,12 +1984,6 @@
         "intern",
         "co-op"
       ]
-    },
-    {
-      "name": "Emerson",
-      "platform": "oracle",
-      "host": "hdjq.fa.us2.oraclecloud.com",
-      "site": "CX_1"
     },
     {
       "name": "Carrier",
@@ -2033,18 +2008,6 @@
       ]
     },
     {
-      "name": "Dell Technologies",
-      "platform": "oracle",
-      "host": "iawmqy.fa.ocs.oraclecloud.com",
-      "site": "careers"
-    },
-    {
-      "name": "Texas Instruments",
-      "platform": "oracle",
-      "host": "edbz.fa.us2.oraclecloud.com",
-      "site": "CX"
-    },
-    {
       "name": "Analog Devices",
       "platform": "workday",
       "tenant": "analogdevices",
@@ -2054,12 +2017,6 @@
         "intern",
         "co-op"
       ]
-    },
-    {
-      "name": "Coherent",
-      "platform": "oracle",
-      "host": "hcwp.fa.us2.oraclecloud.com",
-      "site": "CX_1"
     },
     {
       "name": "Lumentum",
@@ -2153,6 +2110,627 @@
       "slug": "astranis"
     },
     {
+      "name": "Becton Dickinson",
+      "platform": "workday",
+      "tenant": "bdx",
+      "wd": "wd1",
+      "site": "EXTERNAL_CAREER_SITE_USA",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Ansatz Capital",
+      "platform": "lever",
+      "slug": "ansatzcapital"
+    },
+    {
+      "name": "Vatic Investments",
+      "platform": "greenhouse",
+      "slug": "vaticlabs"
+    },
+    {
+      "name": "Evergreen Statistical Trading",
+      "platform": "greenhouse",
+      "slug": "evergreenstatisticaltrading"
+    },
+    {
+      "name": "Headlands Technologies",
+      "platform": "greenhouse",
+      "slug": "headlandstechnologiesllc"
+    },
+    {
+      "name": "Flowdesk",
+      "platform": "greenhouse",
+      "slug": "flowdesk"
+    },
+    {
+      "name": "Tower Research Capital",
+      "platform": "greenhouse",
+      "slug": "towerresearchcapital"
+    },
+    {
+      "name": "Jump Trading",
+      "platform": "greenhouse",
+      "slug": "jumptrading"
+    },
+    {
+      "name": "Optiver",
+      "platform": "greenhouse",
+      "slug": "optiverprivate"
+    },
+    {
+      "name": "IMC Trading",
+      "platform": "greenhouse",
+      "slug": "imc"
+    },
+    {
+      "name": "XTX Markets",
+      "platform": "greenhouse",
+      "slug": "xtxmarketstechnologies"
+    },
+    {
+      "name": "Blackedge Capital",
+      "platform": "greenhouse",
+      "slug": "blackedgecapital"
+    },
+    {
+      "name": "Maven Securities",
+      "platform": "greenhouse",
+      "slug": "mavensecuritiesholdingltd"
+    },
+    {
+      "name": "Mako Trading",
+      "platform": "greenhouse",
+      "slug": "mako"
+    },
+    {
+      "name": "Peak6",
+      "platform": "workday",
+      "tenant": "peak6group",
+      "wd": "wd1",
+      "site": "CapMan",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Valkyrie Trading",
+      "platform": "lever",
+      "slug": "valkyrietrading"
+    },
+    {
+      "name": "Simplex Trading",
+      "platform": "greenhouse",
+      "slug": "simplextrading"
+    },
+    {
+      "name": "Da Vinci Trading",
+      "platform": "greenhouse",
+      "slug": "davinciderivatives"
+    },
+    {
+      "name": "Jump Crypto",
+      "platform": "greenhouse",
+      "slug": "jumpcrypto"
+    },
+    {
+      "name": "B2C2",
+      "platform": "greenhouse",
+      "slug": "b2c2"
+    },
+    {
+      "name": "GSR",
+      "platform": "greenhouse",
+      "slug": "gsrmarkets"
+    },
+    {
+      "name": "Keyrock",
+      "platform": "ashby",
+      "slug": "keyrock"
+    },
+    {
+      "name": "FalconX",
+      "platform": "greenhouse",
+      "slug": "falconx"
+    },
+    {
+      "name": "Amber Group",
+      "platform": "lever",
+      "slug": "ambergroup"
+    },
+    {
+      "name": "Engineers Gate",
+      "platform": "greenhouse",
+      "slug": "engineersgate"
+    },
+    {
+      "name": "Scientech Research",
+      "platform": "ashby",
+      "slug": "scientech-research"
+    },
+    {
+      "name": "ExodusPoint Capital",
+      "platform": "greenhouse",
+      "slug": "exoduspoint"
+    },
+    {
+      "name": "Squarepoint Capital",
+      "platform": "greenhouse",
+      "slug": "squarepointcapital"
+    },
+    {
+      "name": "WorldQuant",
+      "platform": "greenhouse",
+      "slug": "worldquant"
+    },
+    {
+      "name": "AQR Capital Management",
+      "platform": "greenhouse",
+      "slug": "aqr"
+    },
+    {
+      "name": "Man Group",
+      "platform": "greenhouse",
+      "slug": "mangroup"
+    },
+    {
+      "name": "Arrowstreet Capital",
+      "platform": "workday",
+      "tenant": "arrowstreetcapital",
+      "wd": "wd5",
+      "site": "Campus_Careers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Graham Capital Management",
+      "platform": "greenhouse",
+      "slug": "grahamcapitalmanagement"
+    },
+    {
+      "name": "Jain Global",
+      "platform": "workday",
+      "tenant": "jainglobal",
+      "wd": "wd5",
+      "site": "ExternalSite",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Tudor Investment",
+      "platform": "greenhouse",
+      "slug": "tudorgroup"
+    },
+    {
+      "name": "G-Research",
+      "platform": "workday",
+      "tenant": "gresearch",
+      "wd": "wd103",
+      "site": "G-Research",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Viking Global",
+      "platform": "greenhouse",
+      "slug": "vikingglobalinvestors"
+    },
+    {
+      "name": "SS&C Technologies",
+      "platform": "workday",
+      "tenant": "ssctech",
+      "wd": "wd1",
+      "site": "ssctechnologies",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "S&P Global",
+      "platform": "workday",
+      "tenant": "spgi",
+      "wd": "wd5",
+      "site": "SPGI_Careers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "LSEG",
+      "platform": "workday",
+      "tenant": "lseg",
+      "wd": "wd3",
+      "site": "Graduate_Careers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "OneChronos",
+      "platform": "ashby",
+      "slug": "onechronos"
+    },
+    {
+      "name": "Polymarket",
+      "platform": "ashby",
+      "slug": "polymarket"
+    },
+    {
+      "name": "Ripple",
+      "platform": "greenhouse",
+      "slug": "ripple"
+    },
+    {
+      "name": "Fireblocks",
+      "platform": "greenhouse",
+      "slug": "fireblocks"
+    },
+    {
+      "name": "BitGo",
+      "platform": "greenhouse",
+      "slug": "bitgowinter2027"
+    },
+    {
+      "name": "Uniswap Labs",
+      "platform": "ashby",
+      "slug": "uniswap"
+    },
+    {
+      "name": "Phantom",
+      "platform": "ashby",
+      "slug": "phantom"
+    },
+    {
+      "name": "Alchemy",
+      "platform": "ashby",
+      "slug": "alchemy"
+    },
+    {
+      "name": "Consensys",
+      "platform": "ashby",
+      "slug": "consensys"
+    },
+    {
+      "name": "Brex",
+      "platform": "greenhouse",
+      "slug": "brex"
+    },
+    {
+      "name": "Mercury",
+      "platform": "greenhouse",
+      "slug": "mercury"
+    },
+    {
+      "name": "Betterment",
+      "platform": "greenhouse",
+      "slug": "bettermentcampusrecruiting"
+    },
+    {
+      "name": "Wealthfront",
+      "platform": "lever",
+      "slug": "wealthfront"
+    },
+    {
+      "name": "Acorns",
+      "platform": "ashby",
+      "slug": "acorns"
+    },
+    {
+      "name": "Chime",
+      "platform": "greenhouse",
+      "slug": "chime"
+    },
+    {
+      "name": "SoFi",
+      "platform": "greenhouse",
+      "slug": "sofi"
+    },
+    {
+      "name": "Affirm",
+      "platform": "greenhouse",
+      "slug": "affirm"
+    },
+    {
+      "name": "Public",
+      "platform": "greenhouse",
+      "slug": "public"
+    },
+    {
+      "name": "Carta",
+      "platform": "greenhouse",
+      "slug": "carta"
+    },
+    {
+      "name": "Rho",
+      "platform": "ashby",
+      "slug": "rho"
+    },
+    {
+      "name": "Modern Treasury",
+      "platform": "ashby",
+      "slug": "moderntreasury"
+    },
+    {
+      "name": "Column",
+      "platform": "ashby",
+      "slug": "column"
+    },
+    {
+      "name": "Lithic",
+      "platform": "greenhouse",
+      "slug": "lithic"
+    },
+    {
+      "name": "Alloy",
+      "platform": "greenhouse",
+      "slug": "alloy"
+    },
+    {
+      "name": "Socure",
+      "platform": "ashby",
+      "slug": "socure"
+    },
+    {
+      "name": "Chronograph",
+      "platform": "greenhouse",
+      "slug": "chronograph"
+    },
+    {
+      "name": "Capchase",
+      "platform": "ashby",
+      "slug": "capchase"
+    },
+    {
+      "name": "Payoneer",
+      "platform": "greenhouse",
+      "slug": "payoneer"
+    },
+    {
+      "name": "Justworks",
+      "platform": "greenhouse",
+      "slug": "justworks"
+    },
+    {
+      "name": "Flatiron Health",
+      "platform": "greenhouse",
+      "slug": "flatironhealth"
+    },
+    {
+      "name": "Zocdoc",
+      "platform": "greenhouse",
+      "slug": "zocdoc"
+    },
+    {
+      "name": "Datadog",
+      "platform": "greenhouse",
+      "slug": "datadog"
+    },
+    {
+      "name": "MongoDB",
+      "platform": "greenhouse",
+      "slug": "mongodb"
+    },
+    {
+      "name": "Squarespace",
+      "platform": "greenhouse",
+      "slug": "squarespace"
+    },
+    {
+      "name": "Peloton",
+      "platform": "greenhouse",
+      "slug": "peloton"
+    },
+    {
+      "name": "Hex",
+      "platform": "ashby",
+      "slug": "hex"
+    },
+    {
+      "name": "Cockroach Labs",
+      "platform": "greenhouse",
+      "slug": "cockroachlabs"
+    },
+    {
+      "name": "Temporal",
+      "platform": "ashby",
+      "slug": "temporal"
+    },
+    {
+      "name": "Glean",
+      "platform": "greenhouse",
+      "slug": "gleanwork"
+    },
+    {
+      "name": "Harvey",
+      "platform": "ashby",
+      "slug": "harvey"
+    },
+    {
+      "name": "Anysphere",
+      "platform": "ashby",
+      "slug": "cursor"
+    },
+    {
+      "name": "Clay",
+      "platform": "ashby",
+      "slug": "claylabs"
+    },
+    {
+      "name": "Pinecone",
+      "platform": "ashby",
+      "slug": "pinecone"
+    },
+    {
+      "name": "Airtable",
+      "platform": "greenhouse",
+      "slug": "airtable"
+    },
+    {
+      "name": "Asana",
+      "platform": "greenhouse",
+      "slug": "asana"
+    },
+    {
+      "name": "Pinterest",
+      "platform": "greenhouse",
+      "slug": "pinterest"
+    },
+    {
+      "name": "Vercel",
+      "platform": "greenhouse",
+      "slug": "vercel"
+    },
+    {
+      "name": "Supabase",
+      "platform": "ashby",
+      "slug": "supabase"
+    },
+    {
+      "name": "Gusto",
+      "platform": "greenhouse",
+      "slug": "gusto"
+    },
+    {
+      "name": "Mistral AI",
+      "platform": "ashby",
+      "slug": "mistral.ai"
+    },
+    {
+      "name": "Perplexity",
+      "platform": "ashby",
+      "slug": "Perplexity"
+    },
+    {
+      "name": "Cognition",
+      "platform": "ashby",
+      "slug": "cognition"
+    },
+    {
+      "name": "Decagon",
+      "platform": "ashby",
+      "slug": "decagon"
+    },
+    {
+      "name": "Abridge",
+      "platform": "ashby",
+      "slug": "abridge"
+    },
+    {
+      "name": "Mercor",
+      "platform": "ashby",
+      "slug": "mercor"
+    },
+    {
+      "name": "Brain Co",
+      "platform": "ashby",
+      "slug": "brainco"
+    },
+    {
+      "name": "Hightouch",
+      "platform": "ashby",
+      "slug": "hightouch"
+    },
+    {
+      "name": "Writer",
+      "platform": "ashby",
+      "slug": "writer"
+    },
+    {
+      "name": "Runway ML",
+      "platform": "ashby",
+      "slug": "runway-ml"
+    },
+    {
+      "name": "Replit",
+      "platform": "ashby",
+      "slug": "replit"
+    },
+    {
+      "name": "Warp",
+      "platform": "greenhouse",
+      "slug": "warp"
+    },
+    {
+      "name": "Linear",
+      "platform": "ashby",
+      "slug": "linear"
+    },
+    {
+      "name": "Browserbase",
+      "platform": "ashby",
+      "slug": "browserbase"
+    },
+    {
+      "name": "Turing",
+      "platform": "greenhouse",
+      "slug": "turing"
+    },
+    {
+      "name": "Fivetran",
+      "platform": "greenhouse",
+      "slug": "fivetran"
+    },
+    {
+      "name": "JPMorgan Chase",
+      "platform": "oracle",
+      "host": "jpmc.fa.oraclecloud.com",
+      "site": "CX_1001",
+      "searches": [
+        "intern",
+        "summer analyst",
+        "early insight",
+        "sophomore"
+      ]
+    },
+    {
+      "name": "Tradeweb",
+      "platform": "oracle",
+      "host": "ecnf.fa.us2.oraclecloud.com",
+      "site": "CX"
+    },
+    {
+      "name": "Honeywell",
+      "platform": "oracle",
+      "host": "ibqbjb.fa.ocs.oraclecloud.com",
+      "site": "Honeywell"
+    },
+    {
+      "name": "Emerson",
+      "platform": "oracle",
+      "host": "hdjq.fa.us2.oraclecloud.com",
+      "site": "CX_1"
+    },
+    {
+      "name": "Dell Technologies",
+      "platform": "oracle",
+      "host": "iawmqy.fa.ocs.oraclecloud.com",
+      "site": "careers"
+    },
+    {
+      "name": "Texas Instruments",
+      "platform": "oracle",
+      "host": "edbz.fa.us2.oraclecloud.com",
+      "site": "CX"
+    },
+    {
+      "name": "Coherent",
+      "platform": "oracle",
+      "host": "hcwp.fa.us2.oraclecloud.com",
+      "site": "CX_1"
+    },
+    {
       "name": "Arcadis",
       "platform": "oracle",
       "host": "ebcs.fa.em2.oraclecloud.com",
@@ -2165,14 +2743,844 @@
       "site": "CX_2001"
     },
     {
-      "name": "Becton Dickinson",
+      "name": "Kensho",
       "platform": "workday",
-      "tenant": "bdx",
-      "wd": "wd1",
-      "site": "EXTERNAL_CAREER_SITE_USA",
+      "tenant": "spgi",
+      "wd": "wd5",
+      "site": "Kensho_Careers",
       "searches": [
         "intern",
         "co-op"
+      ]
+    },
+    {
+      "name": "Clearwater Analytics",
+      "platform": "workday",
+      "tenant": "clearwateranalytics",
+      "wd": "wd1",
+      "site": "Clearwater_Analytics_Careers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Gelber Group",
+      "platform": "greenhouse",
+      "slug": "gelbergroup"
+    },
+    {
+      "name": "Tanius Technology",
+      "platform": "greenhouse",
+      "slug": "tanius"
+    },
+    {
+      "name": "Numerix",
+      "platform": "greenhouse",
+      "slug": "numerix"
+    },
+    {
+      "name": "Cantor Fitzgerald",
+      "platform": "oracle",
+      "host": "hdow.fa.us6.oraclecloud.com",
+      "site": "CX_1003"
+    },
+    {
+      "name": "Raymond James",
+      "platform": "workday",
+      "tenant": "raymondjames",
+      "wd": "wd1",
+      "site": "RaymondJamesEarlyCareers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Adaptive Financial Consulting",
+      "platform": "ashby",
+      "slug": "adaptivesecurity"
+    },
+    {
+      "name": "3Red Partners",
+      "platform": "greenhouse",
+      "slug": "3redpartners"
+    },
+    {
+      "name": "Plaid",
+      "platform": "ashby",
+      "slug": "plaid"
+    },
+    {
+      "name": "tastytrade",
+      "platform": "greenhouse",
+      "slug": "tastytrade"
+    },
+    {
+      "name": "Apex Fintech Solutions",
+      "platform": "workday",
+      "tenant": "peak6group",
+      "wd": "wd1",
+      "site": "apexfintechsolutions",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Ramiel Capital",
+      "platform": "ashby",
+      "slug": "ramielcapital"
+    },
+    {
+      "name": "PanAgora",
+      "platform": "workday",
+      "tenant": "empower",
+      "wd": "wd12",
+      "site": "PanAgora",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "DeepFin Research",
+      "platform": "greenhouse",
+      "slug": "deepfinresearch"
+    },
+    {
+      "name": "The Trade Desk",
+      "platform": "greenhouse",
+      "slug": "thetradedesk"
+    },
+    {
+      "name": "Block",
+      "platform": "greenhouse",
+      "slug": "block"
+    },
+    {
+      "name": "Grow Therapy",
+      "platform": "ashby",
+      "slug": "grow-therapy"
+    },
+    {
+      "name": "Headway",
+      "platform": "ashby",
+      "slug": "headway"
+    },
+    {
+      "name": "Nominal",
+      "platform": "lever",
+      "slug": "nominal"
+    },
+    {
+      "name": "ElevenLabs",
+      "platform": "ashby",
+      "slug": "elevenlabs"
+    },
+    {
+      "name": "Precharm",
+      "platform": "ashby",
+      "slug": "precharm"
+    },
+    {
+      "name": "Boerboel Trading",
+      "platform": "greenhouse",
+      "slug": "boerboeltrading"
+    },
+    {
+      "name": "Quadrature Capital",
+      "platform": "greenhouse",
+      "slug": "quadraturecapital"
+    },
+    {
+      "name": "MA Capital",
+      "platform": "greenhouse",
+      "slug": "macapital"
+    },
+    {
+      "name": "Caladan",
+      "platform": "greenhouse",
+      "slug": "caladan"
+    },
+    {
+      "name": "Epoch Capital",
+      "platform": "greenhouse",
+      "slug": "epochcapital"
+    },
+    {
+      "name": "Capital Fund Management",
+      "platform": "greenhouse",
+      "slug": "cfm"
+    },
+    {
+      "name": "HBK Capital Management",
+      "platform": "greenhouse",
+      "slug": "hbkcapitalmanagement"
+    },
+    {
+      "name": "AllianceBernstein",
+      "platform": "workday",
+      "tenant": "abglobal",
+      "wd": "wd1",
+      "site": "abcampuscareers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "DTCC",
+      "platform": "oracle",
+      "host": "ebxr.fa.us2.oraclecloud.com",
+      "site": "CX_1"
+    },
+    {
+      "name": "Blacksmith",
+      "platform": "ashby",
+      "slug": "blacksmith"
+    },
+    {
+      "name": "Credal",
+      "platform": "ashby",
+      "slug": "credal"
+    },
+    {
+      "name": "Solve Intelligence",
+      "platform": "ashby",
+      "slug": "solveintelligence"
+    },
+    {
+      "name": "Hanover Park",
+      "platform": "ashby",
+      "slug": "hanover-park"
+    },
+    {
+      "name": "CAIS",
+      "platform": "greenhouse",
+      "slug": "cais"
+    },
+    {
+      "name": "Fernstone",
+      "platform": "ashby",
+      "slug": "fernstone"
+    },
+    {
+      "name": "Confido",
+      "platform": "ashby",
+      "slug": "confido"
+    },
+    {
+      "name": "Greenboard",
+      "platform": "ashby",
+      "slug": "greenboard"
+    },
+    {
+      "name": "Encord",
+      "platform": "ashby",
+      "slug": "encord"
+    },
+    {
+      "name": "Vestwell",
+      "platform": "greenhouse",
+      "slug": "vestwell"
+    },
+    {
+      "name": "Cardless",
+      "platform": "ashby",
+      "slug": "cardless"
+    },
+    {
+      "name": "Stytch",
+      "platform": "ashby",
+      "slug": "stytch"
+    },
+    {
+      "name": "Sardine",
+      "platform": "ashby",
+      "slug": "sardine"
+    },
+    {
+      "name": "Match Group",
+      "platform": "lever",
+      "slug": "matchgroup"
+    },
+    {
+      "name": "SeatGeek",
+      "platform": "greenhouse",
+      "slug": "seatgeek"
+    },
+    {
+      "name": "Adobe",
+      "platform": "workday",
+      "tenant": "adobe",
+      "wd": "wd5",
+      "site": "external_experienced",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Fox Corporation",
+      "platform": "workday",
+      "tenant": "fox",
+      "wd": "wd1",
+      "site": "Domestic",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Method Financial",
+      "platform": "greenhouse",
+      "slug": "method"
+    },
+    {
+      "name": "Abacum",
+      "platform": "ashby",
+      "slug": "abacum"
+    },
+    {
+      "name": "Middesk",
+      "platform": "ashby",
+      "slug": "middesk"
+    },
+    {
+      "name": "Roboflow",
+      "platform": "ashby",
+      "slug": "roboflow"
+    },
+    {
+      "name": "DiligenceSquared",
+      "platform": "ashby",
+      "slug": "diligencesquared"
+    },
+    {
+      "name": "Legora",
+      "platform": "ashby",
+      "slug": "legora"
+    },
+    {
+      "name": "Zip",
+      "platform": "ashby",
+      "slug": "zip"
+    },
+    {
+      "name": "Andreessen Horowitz",
+      "platform": "greenhouse",
+      "slug": "a16z"
+    },
+    {
+      "name": "Options IT",
+      "platform": "ashby",
+      "slug": "options-it"
+    },
+    {
+      "name": "Instinct",
+      "platform": "ashby",
+      "slug": "instinct"
+    },
+    {
+      "name": "Circleback",
+      "platform": "ashby",
+      "slug": "circleback"
+    },
+    {
+      "name": "CTGT",
+      "platform": "ashby",
+      "slug": "ctgt"
+    },
+    {
+      "name": "Garage",
+      "platform": "ashby",
+      "slug": "garage"
+    },
+    {
+      "name": "Interfere",
+      "platform": "ashby",
+      "slug": "interfere"
+    },
+    {
+      "name": "Pontera",
+      "platform": "greenhouse",
+      "slug": "pontera"
+    },
+    {
+      "name": "Paradigm",
+      "platform": "ashby",
+      "slug": "paradigm"
+    },
+    {
+      "name": "Kastle",
+      "platform": "ashby",
+      "slug": "kastle"
+    },
+    {
+      "name": "Pulse",
+      "platform": "greenhouse",
+      "slug": "pulse"
+    },
+    {
+      "name": "Reacher",
+      "platform": "ashby",
+      "slug": "reacher"
+    },
+    {
+      "name": "SafetyKit",
+      "platform": "ashby",
+      "slug": "safetykit"
+    },
+    {
+      "name": "FloQast",
+      "platform": "lever",
+      "slug": "floqast"
+    },
+    {
+      "name": "Contentful",
+      "platform": "greenhouse",
+      "slug": "contentful"
+    },
+    {
+      "name": "Sanity",
+      "platform": "ashby",
+      "slug": "sanity"
+    },
+    {
+      "name": "Uber",
+      "platform": "greenhouse",
+      "slug": "uberfreight"
+    },
+    {
+      "name": "Lyft",
+      "platform": "greenhouse",
+      "slug": "lyft"
+    },
+    {
+      "name": "Snap",
+      "platform": "workday",
+      "tenant": "snapfinance",
+      "wd": "wd1",
+      "site": "snap_external_careers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Instacart",
+      "platform": "greenhouse",
+      "slug": "instacart"
+    },
+    {
+      "name": "Discord",
+      "platform": "greenhouse",
+      "slug": "discord"
+    },
+    {
+      "name": "Reddit",
+      "platform": "greenhouse",
+      "slug": "reddit"
+    },
+    {
+      "name": "Roblox",
+      "platform": "greenhouse",
+      "slug": "roblox"
+    },
+    {
+      "name": "Twilio",
+      "platform": "greenhouse",
+      "slug": "twilio"
+    },
+    {
+      "name": "Okta",
+      "platform": "greenhouse",
+      "slug": "okta"
+    },
+    {
+      "name": "Dropbox",
+      "platform": "greenhouse",
+      "slug": "dropbox"
+    },
+    {
+      "name": "Box",
+      "platform": "greenhouse",
+      "slug": "boxinc"
+    },
+    {
+      "name": "Nextdoor",
+      "platform": "greenhouse",
+      "slug": "nextdoor"
+    },
+    {
+      "name": "Faire",
+      "platform": "greenhouse",
+      "slug": "faire"
+    },
+    {
+      "name": "Toast",
+      "platform": "greenhouse",
+      "slug": "toast"
+    },
+    {
+      "name": "Samsara",
+      "platform": "greenhouse",
+      "slug": "samsara"
+    },
+    {
+      "name": "Benchling",
+      "platform": "ashby",
+      "slug": "benchling"
+    },
+    {
+      "name": "Flexport",
+      "platform": "greenhouse",
+      "slug": "flexport"
+    },
+    {
+      "name": "Gopuff",
+      "platform": "lever",
+      "slug": "gopuff"
+    },
+    {
+      "name": "Rent the Runway",
+      "platform": "greenhouse",
+      "slug": "renttherunway"
+    },
+    {
+      "name": "Tripadvisor",
+      "platform": "greenhouse",
+      "slug": "tripadvisor"
+    },
+    {
+      "name": "Expedia",
+      "platform": "workday",
+      "tenant": "expedia",
+      "wd": "wd108",
+      "site": "private",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Visa",
+      "platform": "workday",
+      "tenant": "visa",
+      "wd": "wd5",
+      "site": "Visa",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Mastercard",
+      "platform": "workday",
+      "tenant": "mastercard",
+      "wd": "wd1",
+      "site": "Campus",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Nike",
+      "platform": "workday",
+      "tenant": "nike",
+      "wd": "wd1",
+      "site": "nke",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "LinkedIn",
+      "platform": "lever",
+      "slug": "linkedin"
+    },
+    {
+      "name": "Workday",
+      "platform": "workday",
+      "tenant": "workday",
+      "wd": "wd5",
+      "site": "Workday_Early_Career",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Oracle",
+      "platform": "oracle",
+      "host": "eeho.fa.us2.oraclecloud.com",
+      "site": "CX_45001"
+    },
+    {
+      "name": "Cisco",
+      "platform": "workday",
+      "tenant": "cisco",
+      "wd": "wd5",
+      "site": "cisco_careers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Uber Freight",
+      "platform": "greenhouse",
+      "slug": "uberfreight"
+    },
+    {
+      "name": "Zillow",
+      "platform": "workday",
+      "tenant": "zillow",
+      "wd": "wd5",
+      "site": "Zillow_Group_External",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Fidelity Investments",
+      "platform": "workday",
+      "tenant": "fmr",
+      "wd": "wd1",
+      "site": "targeted",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Vanguard",
+      "platform": "workday",
+      "tenant": "vanguard",
+      "wd": "wd5",
+      "site": "vanguard_external",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "BNY",
+      "platform": "oracle",
+      "host": "eofe.fa.us2.oraclecloud.com",
+      "site": "CX_1001"
+    },
+    {
+      "name": "State Street",
+      "platform": "workday",
+      "tenant": "statestreet",
+      "wd": "wd1",
+      "site": "Global",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Bank of America",
+      "platform": "workday",
+      "tenant": "ghr",
+      "wd": "wd1",
+      "site": "us-emplsv",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Citizens",
+      "platform": "oracle",
+      "host": "hcgn.fa.us2.oraclecloud.com",
+      "site": "CX_1"
+    },
+    {
+      "name": "Synchrony",
+      "platform": "workday",
+      "tenant": "synchronyfinancial",
+      "wd": "wd5",
+      "site": "University",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "PNC",
+      "platform": "workday",
+      "tenant": "pnc",
+      "wd": "wd5",
+      "site": "External",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Truist",
+      "platform": "workday",
+      "tenant": "truist",
+      "wd": "wd1",
+      "site": "Careers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "TD Bank",
+      "platform": "workday",
+      "tenant": "td",
+      "wd": "wd3",
+      "site": "TD_Bank_Careers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Mizuho",
+      "platform": "workday",
+      "tenant": "mizuho",
+      "wd": "wd1",
+      "site": "Mizuho_Confidential",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "MUFG",
+      "platform": "workday",
+      "tenant": "mufgub",
+      "wd": "wd3",
+      "site": "mufg-earlycareers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Lazard",
+      "platform": "oracle",
+      "host": "icbpjb.fa.ocs.oraclecloud.com",
+      "site": "LazardProfessionalCareers"
+    },
+    {
+      "name": "Houlihan Lokey",
+      "platform": "workday",
+      "tenant": "hl",
+      "wd": "wd1",
+      "site": "Campus",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Blackstone",
+      "platform": "workday",
+      "tenant": "blackstone",
+      "wd": "wd1",
+      "site": "Blackstone_Campus_Careers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Apollo",
+      "platform": "workday",
+      "tenant": "athene",
+      "wd": "wd5",
+      "site": "Apollo_Careers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Neuberger Berman",
+      "platform": "workday",
+      "tenant": "nb",
+      "wd": "wd1",
+      "site": "NBCareers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "PIMCO",
+      "platform": "workday",
+      "tenant": "pimco",
+      "wd": "wd1",
+      "site": "pimco-careers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "T. Rowe Price",
+      "platform": "workday",
+      "tenant": "troweprice",
+      "wd": "wd5",
+      "site": "TRowePrice",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Invesco",
+      "platform": "workday",
+      "tenant": "invesco",
+      "wd": "wd1",
+      "site": "IVZ",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Franklin Templeton",
+      "platform": "workday",
+      "tenant": "franklintempleton",
+      "wd": "wd5",
+      "site": "invitation-only",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Prudential",
+      "platform": "workday",
+      "tenant": "pru",
+      "wd": "wd5",
+      "site": "Careers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Morgan Stanley",
+      "platform": "eightfold",
+      "host": "morganstanley.eightfold.ai",
+      "domain": "morganstanley.com",
+      "searches": [
+        "intern",
+        "summer analyst"
       ]
     }
   ],
@@ -2182,6 +3590,15 @@
     "greenhouse:momentenergy",
     "lever:genesis",
     "lever:kraken",
-    "workday:applebank"
+    "workday:applebank",
+    "ashby:graphite",
+    "ashby:runway",
+    "ashby:numeric",
+    "lever:increase",
+    "workday:circlek",
+    "greenhouse:greycroft",
+    "greenhouse:axle",
+    "greenhouse:current",
+    "workday:ultra"
   ]
 }

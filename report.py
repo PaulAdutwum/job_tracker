@@ -46,6 +46,7 @@ details{margin-top:4px;color:var(--muted);font-size:12px;max-width:340px}summary
 <p class="sub" id="sub"></p>
 <div class="bar"><input id="q" type="search" placeholder="Search role, company, location…"></div>
 <div class="bar"><span class="label">Posted</span>
+  <button class="chip" data-g="win" data-v="new">New since last visit</button>
   <button class="chip" data-g="win" data-v="24">Last 24 hours</button>
   <button class="chip" data-g="win" data-v="72">3 days</button>
   <button class="chip" data-g="win" data-v="168">7 days</button>
@@ -65,15 +66,27 @@ details{margin-top:4px;color:var(--muted);font-size:12px;max-width:340px}summary
   <button class="chip" data-g="sp" data-v="Sponsors">Sponsors</button>
   <button class="chip" data-g="sp" data-v="Does not sponsor">Does not sponsor</button>
   <button class="chip" data-g="sp" data-v="Not specified">Not specified</button></div>
+<div class="bar"><span class="label">Status</span>
+  <button class="chip" data-g="st" data-v="todo">Not applied</button>
+  <button class="chip" data-g="st" data-v="done">Applied</button>
+  <button class="chip" data-g="st" data-v="">All</button></div>
 <div class="wrap"><table>
 <thead><tr><th data-k="company">Company</th><th data-k="title">Role</th><th data-k="location">Location</th>
-<th data-k="posted" data-dir="desc">Posted</th><th data-k="sponsorship">Sponsorship</th></tr></thead>
+<th data-k="posted" data-dir="desc">Posted</th><th data-k="sponsorship">Sponsorship</th><th>Applied</th></tr></thead>
 <tbody id="rows"></tbody></table><div class="empty" id="empty" hidden></div></div>
 </main>
 <script>
 const JOBS = __DATA__;
 const GENERATED = "__GENERATED__";
-const state = {win: "24", us: "1", sp: "", sec: ""};
+// Per-browser memory: when you last looked, and which postings you've applied to.
+const store = {
+  get(k, d){ try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
+  set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+};
+const LAST_VISIT = store.get("lastVisit", null);
+const applied = new Set(store.get("applied", []));
+addEventListener("pagehide", () => store.set("lastVisit", new Date().toISOString()));
+const state = {win: LAST_VISIT ? "new" : "24", us: "1", sp: "", sec: "", st: "todo"};
 const SECTION = {swe: "SWE", quant: "Quant", finance: "Finance", hardware: "Hardware", events: "Event / program", other: "Other"};
 let sortKey = "posted", sortDir = -1;
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -99,34 +112,45 @@ function when(iso){
   const time = dateOnly(iso) ? "time not listed" : d.toLocaleTimeString(undefined, {hour:"numeric", minute:"2-digit"});
   return `<b>${date}</b><br><small>${time} · ${ago(iso)}</small>`;
 }
-const isNew = j => j.first_seen && Date.now() - new Date(j.first_seen) < 864e5 && j.first_seen > BASELINE;
-const BASELINE = JOBS.reduce((m, j) => j.first_seen && j.first_seen < m ? j.first_seen : m, "9999");
+// New = found by the tracker after your last visit (or in the last 24h on a first visit),
+// skipping each source's first-run baseline so a newly added company doesn't flood it.
+const isNew = j => !!j.first_seen && !j.baseline &&
+  (LAST_VISIT ? new Date(j.first_seen) > new Date(LAST_VISIT) : Date.now() - new Date(j.first_seen) < 864e5);
+const inWindow = j => state.win === "new" ? isNew(j) : (!state.win || ageHours(j.posted) <= +state.win);
 function render(){
   const q = document.getElementById("q").value.toLowerCase();
   const list = JOBS.filter(j =>
       (!state.us || j.us) &&
       (state.sec ? j.section === state.sec : j.section !== "other") &&
-      (!state.win || ageHours(j.posted) <= +state.win) &&
+      inWindow(j) &&
       (!state.sp || j.sponsorship === state.sp) &&
+      (state.st === "todo" ? !applied.has(j.url) : state.st === "done" ? applied.has(j.url) : true) &&
       (j.title + " " + j.company + " " + j.location).toLowerCase().includes(q))
     .sort((a, b) => sortKey === "posted"
       ? (Math.min(ageHours(a.posted), 1e9) - Math.min(ageHours(b.posted), 1e9)) * -sortDir  // smaller age = newer
       : String(a[sortKey] ?? "").localeCompare(String(b[sortKey] ?? "")) * sortDir);
   document.getElementById("rows").innerHTML = list.map(j => `<tr>
-    <td class="co">${esc(j.company)}<br><small class="src">${esc(SECTION[j.section] || "")} · ${j.platform === "simplify" ? "via Simplify" : "company site"}</small></td>
+    <td class="co">${esc(j.company)}<br><small class="src">${esc(SECTION[j.section] || "")} · ${j.platform === "simplify" ? "via community list" : "company site"}</small></td>
     <td><a href="${esc(j.url)}" target="_blank" rel="noopener">${esc(j.title)}</a>${isNew(j) ? '<span class="badge new">NEW</span>' : ""}</td>
     <td class="loc">${esc(j.location)}</td>
     <td class="when">${when(j.posted)}</td>
     <td><span class="badge ${esc((j.sponsorship || "Not").split(" ")[0])}">${esc(j.sponsorship || "Not specified")}</span>
-      ${j.sponsorship_evidence ? `<details><summary>Why?</summary>“${esc(j.sponsorship_evidence)}”</details>` : ""}</td></tr>`).join("");
+      ${j.sponsorship_evidence ? `<details><summary>Why?</summary>“${esc(j.sponsorship_evidence)}”</details>` : ""}</td>
+    <td><input type="checkbox" class="ap" data-url="${esc(j.url)}" ${applied.has(j.url) ? "checked" : ""} aria-label="Applied"></td></tr>`).join("");
   const empty = document.getElementById("empty");
   empty.hidden = list.length > 0;
-  empty.textContent = state.win ? "Nothing posted in this window yet. Try 3 days or 7 days." : "No postings match.";
+  empty.textContent = state.win === "new" ? "Nothing new since your last visit. Try Last 24 hours or 3 days."
+    : state.win ? "Nothing posted in this window yet. Try 3 days or 7 days." : "No postings match.";
   const c = s => list.filter(j => j.sponsorship === s).length;
   document.getElementById("sub").textContent = `Showing ${list.length} of ${JOBS.length} postings · ${c("Sponsors")} sponsor · ${c("Does not sponsor")} don't · ${c("Not specified")} not specified · updated ${new Date(GENERATED).toLocaleString()}`;
 }
 function sync(){ document.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-pressed", state[b.dataset.g] === b.dataset.v)); }
 document.getElementById("q").addEventListener("input", render);
+document.getElementById("rows").addEventListener("change", e => {
+  if (!e.target.classList.contains("ap")) return;
+  e.target.checked ? applied.add(e.target.dataset.url) : applied.delete(e.target.dataset.url);
+  store.set("applied", [...applied]);
+});
 document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => { state[b.dataset.g] = b.dataset.v; sync(); render(); }));
 document.querySelectorAll("th").forEach(th => th.addEventListener("click", () => {
   sortDir = sortKey === th.dataset.k ? -sortDir : (th.dataset.k === "posted" ? -1 : 1);
@@ -142,7 +166,7 @@ sync(); render();
 def write(jobs):
     from db import now
     rows = [{k: j.get(k) for k in ("company", "platform", "title", "location", "url", "us", "posted",
-                                   "first_seen", "sponsorship", "sponsorship_evidence", "section")}
+                                   "first_seen", "sponsorship", "sponsorship_evidence", "section", "baseline")}
             for j in jobs]
     data = json.dumps(rows).replace("</", "<\\/")  # keep job text from closing the <script> tag
     REPORT_PATH.write_text(PAGE.replace("__DATA__", data).replace("__GENERATED__", now()))
