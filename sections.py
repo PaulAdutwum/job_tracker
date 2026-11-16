@@ -13,14 +13,20 @@ LABELS = {
 
 # Company-sponsored programs and events: insight weeks, sophomore programs, summits, etc.
 EVENTS = re.compile(
-    r"insight (program|week|day|series)|early insights?|discovery (day|program)|summit|spring week"
-    r"|sophomore|freshman|first[- ]year|explore (program|microsoft)|externship"
-    r"|info(rmation)? session|open house|hackathon|virtual experience|bootcamp"
-    r"|diversity (program|forum)|women in (tech|finance|business|stem)|launch(ing)? (program|leaders)"
-    r"|career fair|pre[- ]internship|sponsors for educational opportunity|possibilities", re.I)
+    r"insights? (program|week|day|days|series|event)|early insights?|discovery (day|days|program|programme|event|week|series)"
+    r"|(student|diversity|women|campus|career|leadership|insight|early careers?) summit|summit (program|series)|spring (week|insight|program)|winter (insight|program)|sophomore|freshman|first[- ]year|first[- ]gen"
+    r"|rising (sophomore|junior)|explore (program|microsoft)|externship|info(rmation)? session|open (house|day)"
+    r"|hackathon|datathon|virtual (experience|event|program)|boot ?camp|diversity (program|forum|summit)"
+    r"|women in (tech|finance|business|stem|trading|quant)|launch(ing)? (program|leaders)|career fair"
+    r"|pre[- ]internship|sponsors for educational opportunity|seo (career|scholar)|management leadership for tomorrow"
+    r"|girls who invest|possibilities|(case|stock pitch|trading|quant|coding) (competition|challenge|game)"
+    r"|webinar|fireside chat|tech talk|coffee chat|networking (event|night|session)|immersion (program|day|week)"
+    r"|emerging (leaders|talent) program|early careers? (program|event|series)|scholarship|student fellowship"
+    r"|fellowship program|academy program|trading (simulation|intensive)|intensive program|networking event",
+    re.I)
 
 RULES = [
-    ("quant", r"quant|trading|trader|\bstrats?\b|market making"),
+    ("quant", r"quant|trading(?! cards?)|trader|\bstrats?\b|market making"),
     ("swe", r"software|back[- ]?end|full[- ]?stack|front[- ]?end|\bswe\b|developer|data (scien|engineer|analy)"
             r"|machine learning|\bml\b|\bai\b|platform|infrastructure|cloud|devops|\bsre\b|site reliability"
             r"|cyber|security engineer|computer science|technology|engineering intern"),
@@ -51,7 +57,8 @@ def section_of(job):
     return "other"
 
 
-SENIOR = re.compile(r"\b(senior|sr\.?|manager|director|principal|staff|lead|head of|vice president|vp)\b", re.I)
+SENIOR = re.compile(r"\b(senior|sr\.?|manager|director|principal|staff|lead|head of|vice president|vp"
+                    r"|specialist|coordinator|strategist|recruiter|writer|planner)\b", re.I)
 
 
 def is_event(title):
