@@ -711,3 +711,26 @@ Franklin Templeton
 Nuveen
 Prudential
 MetLife
+
+# Boards found inside company career pages (2026-11-15), incl. Workable / Rippling / Pinpoint
+Trexquant Investments|https://apply.workable.com/trexquant
+Hugging Face Jobs|Hugging Face|https://apply.workable.com/huggingface
+Caxton|https://apply.workable.com/caxton
+Daloopa Jobs|Daloopa|https://ats.rippling.com/daloopa
+Webull Jobs|Webull|https://ats.rippling.com/webull
+Wolverine|https://wolve.pinpointhq.com
+Teza|https://jobs.ashbyhq.com/teza-technologies
+Davidson Kempner Capital|https://job-boards.greenhouse.io/1456754456yhgbhfg
+TGS Management Company|https://jobs.lever.co/tgsmc
+Guggenheim Partners Careers|https://guggenheim.wd1.myworkdayjobs.com/Guggenheim_Partners
+Broadridge Careers|https://broadridge.wd5.myworkdayjobs.com/Careers
+Virtus (AlphaSimplex)|https://virtus.wd5.myworkdayjobs.com/VirtusCareers
+Hebbia AI|https://jobs.ashbyhq.com/hebbia-ai
+Kraken Digital|https://jobs.ashbyhq.com/kraken.com
+Anchorage Digital Bank|https://jobs.lever.co/anchorage
+Deel Jobs|https://jobs.ashbyhq.com/Deel
+Rogo AI|https://jobs.ashbyhq.com/Rogo
+Ro Health|https://jobs.lever.co/ro
+Trillium|https://job-boards.greenhouse.io/trillium
+Pico Quantitative Trading|https://job-boards.greenhouse.io/picoquantitativetrading
+Capitolis Inc|https://job-boards.greenhouse.io/capitolis

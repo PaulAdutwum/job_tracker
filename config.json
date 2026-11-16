@@ -3582,6 +3582,159 @@
         "intern",
         "summer analyst"
       ]
+    },
+    {
+      "name": "Two Sigma",
+      "platform": "page",
+      "url": "https://careers.twosigma.com/careers/OpenRoles"
+    },
+    {
+      "name": "Susquehanna (SIG)",
+      "platform": "page",
+      "url": "https://careers-sig.icims.com/jobs/search?ss=1&searchKeyword=intern&in_iframe=1"
+    },
+    {
+      "name": "MSCI",
+      "platform": "page",
+      "url": "https://careers-msci.icims.com/jobs/search?ss=1&searchKeyword=intern&in_iframe=1"
+    },
+    {
+      "name": "Moody's",
+      "platform": "page",
+      "url": "https://careers.moodys.com/"
+    },
+    {
+      "name": "BMLL Technologies",
+      "platform": "workable",
+      "slug": "bmlltech"
+    },
+    {
+      "name": "Rippling",
+      "platform": "rippling",
+      "slug": "rippling"
+    },
+    {
+      "name": "Trexquant Investments",
+      "platform": "workable",
+      "slug": "trexquant"
+    },
+    {
+      "name": "Hugging Face Jobs",
+      "platform": "workable",
+      "slug": "huggingface"
+    },
+    {
+      "name": "Caxton",
+      "platform": "workable",
+      "slug": "caxton"
+    },
+    {
+      "name": "Daloopa Jobs",
+      "platform": "rippling",
+      "slug": "daloopa"
+    },
+    {
+      "name": "Webull Jobs",
+      "platform": "rippling",
+      "slug": "webull"
+    },
+    {
+      "name": "Wolverine",
+      "platform": "pinpoint",
+      "slug": "wolve"
+    },
+    {
+      "name": "Teza",
+      "platform": "ashby",
+      "slug": "teza-technologies"
+    },
+    {
+      "name": "Davidson Kempner Capital",
+      "platform": "greenhouse",
+      "slug": "1456754456yhgbhfg"
+    },
+    {
+      "name": "TGS Management Company",
+      "platform": "lever",
+      "slug": "tgsmc"
+    },
+    {
+      "name": "Guggenheim Partners Careers",
+      "platform": "workday",
+      "tenant": "guggenheim",
+      "wd": "wd1",
+      "site": "Guggenheim_Partners",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Broadridge Careers",
+      "platform": "workday",
+      "tenant": "broadridge",
+      "wd": "wd5",
+      "site": "Careers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Virtus (AlphaSimplex)",
+      "platform": "workday",
+      "tenant": "virtus",
+      "wd": "wd5",
+      "site": "VirtusCareers",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Hebbia AI",
+      "platform": "ashby",
+      "slug": "hebbia-ai"
+    },
+    {
+      "name": "Kraken Digital",
+      "platform": "ashby",
+      "slug": "kraken.com"
+    },
+    {
+      "name": "Anchorage Digital Bank",
+      "platform": "lever",
+      "slug": "anchorage"
+    },
+    {
+      "name": "Deel Jobs",
+      "platform": "ashby",
+      "slug": "Deel"
+    },
+    {
+      "name": "Rogo AI",
+      "platform": "ashby",
+      "slug": "Rogo"
+    },
+    {
+      "name": "Ro Health",
+      "platform": "lever",
+      "slug": "ro"
+    },
+    {
+      "name": "Trillium",
+      "platform": "greenhouse",
+      "slug": "trillium"
+    },
+    {
+      "name": "Pico Quantitative Trading",
+      "platform": "greenhouse",
+      "slug": "picoquantitativetrading"
+    },
+    {
+      "name": "Capitolis Inc",
+      "platform": "greenhouse",
+      "slug": "capitolis"
     }
   ],
   "ignored_boards": [

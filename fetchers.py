@@ -178,6 +178,60 @@ def fetch_eightfold(c, client):
     return list(jobs.values())
 
 
+def fetch_workable(c, client):
+    """Workable boards (apply.workable.com/<slug>). The public widget API has no descriptions."""
+    r = client.get(f"https://apply.workable.com/api/v1/widget/accounts/{c['slug']}")
+    r.raise_for_status()
+    jobs = []
+    for j in r.json()["jobs"]:
+        locs = j.get("locations") or [{"city": j.get("city"), "region": j.get("state"), "country": j.get("country")}]
+        location = " • ".join(", ".join(x for x in (l.get("city"), l.get("region"), l.get("country")) if x) for l in locs)
+        jobs.append(_job("workable", c["slug"], j["shortcode"], c["name"], j["title"], location, j["url"],
+                         j.get("published_on") or j.get("created_at"), "", country=j.get("country")))
+    return jobs
+
+
+def fetch_rippling(c, client):
+    """Rippling ATS boards (ats.rippling.com/<slug>). No posting date; the tracker uses first-seen time."""
+    r = client.get(f"https://api.rippling.com/platform/api/ats/v1/board/{c['slug']}/jobs")
+    r.raise_for_status()
+    return [_job("rippling", c["slug"], j["uuid"], c["name"], j["name"],
+                 (j.get("workLocation") or {}).get("label"), j["url"], "", "")
+            for j in r.json()]
+
+
+def fetch_pinpoint(c, client):
+    """Pinpoint boards (<slug>.pinpointhq.com). No posting date; the tracker uses first-seen time."""
+    r = client.get(f"https://{c['slug']}.pinpointhq.com/postings.json")
+    r.raise_for_status()
+    return [_job("pinpoint", c["slug"], j["id"], c["name"], j["title"], (j.get("location") or {}).get("name"),
+                 j["url"], "", html_to_text(" ".join(str(j.get(k) or "") for k in
+                                                    ("description", "skills_knowledge_expertise"))))
+            for j in r.json()["data"]]
+
+
+PAGE_LINK = re.compile(r'<a\b[^>]*href=["\']([^"\'#]+)["\'][^>]*>(.*?)</a>', re.S | re.I)
+PAGE_HEADERS = {"User-Agent": "Mozilla/5.0 (Macintosh) personal-job-tracker"}
+
+
+def fetch_page(c, client):
+    """Watch a careers page that has no job-board API: every link whose text looks like a role
+    (matches the page's `pattern`, default internships) becomes a posting, keyed by its URL,
+    so a new link on the page shows up as a new job. Only works for pages that put the links
+    in the HTML (not ones that load them later with JavaScript)."""
+    r = client.get(c["url"], headers=PAGE_HEADERS)
+    r.raise_for_status()
+    pattern = re.compile(c.get("pattern", r"\bintern(ship)?s?\b|summer analyst|co-?op"), re.I)
+    jobs = {}
+    for href, text in PAGE_LINK.findall(r.text):
+        title = re.sub(r"^Title\s+", "", re.sub(r"\s+", " ", html_to_text(text)).strip())  # iCIMS prefixes "Title"
+        if title and len(title) < 160 and pattern.search(title):
+            url = str(httpx.URL(c["url"]).join(html.unescape(href)))
+            jobs[url] = _job("page", c["name"].lower().replace(" ", "-"), url, c["name"], title,
+                             c.get("location", ""), url, "", "")
+    return list(jobs.values())
+
+
 SIMPLIFY_SPONSORSHIP = {
     "Offers Sponsorship": "Sponsors",
     "Does Not Offer Sponsorship": "Does not sponsor",
@@ -229,6 +283,10 @@ FETCHERS = {
     "workday": fetch_workday,
     "oracle": fetch_oracle,
     "eightfold": fetch_eightfold,
+    "workable": fetch_workable,
+    "rippling": fetch_rippling,
+    "pinpoint": fetch_pinpoint,
+    "page": fetch_page,
     "simplify": fetch_simplify,
 }
 
@@ -274,6 +332,9 @@ def parse_board_url(url, name):
         ("greenhouse", r"(?:job-)?boards(?:-api)?\.greenhouse\.io/(?:v1/boards/)?(?!embed/)([\w-]+)"),
         ("lever", r"jobs\.lever\.co/([\w-]+)"),
         ("ashby", r"jobs\.ashbyhq\.com/([\w.-]+)"),
+        ("workable", r"apply\.workable\.com/(?!j/|api/)([\w-]+)"),
+        ("rippling", r"ats\.rippling\.com/(?:[a-z]{2}-[A-Z]{2}/)?([\w-]+)"),
+        ("pinpoint", r"([\w-]+)\.pinpointhq\.com"),
     ]
     for platform, pat in patterns:
         m = re.search(pat, url)
