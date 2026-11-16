@@ -24,7 +24,7 @@ h1{font-size:22px;margin:0 0 4px}
 .sub{color:var(--muted);margin:0 0 18px}
 .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
 .label{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);min-width:86px}
-input{flex:1;min-width:200px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font:inherit}
+input[type=search]{flex:1;min-width:200px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font:inherit}
 .chip{padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);cursor:pointer;font:inherit}
 .chip[aria-pressed=true]{border-color:var(--accent);color:var(--accent);font-weight:600}
 .wrap{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow-x:auto;margin-top:14px}
@@ -41,7 +41,36 @@ a{color:var(--accent);text-decoration:none;font-weight:600}a:hover{text-decorati
 .new{color:var(--new);background:var(--new-bg);margin-left:6px}
 details{margin-top:4px;color:var(--muted);font-size:12px;max-width:340px}summary{cursor:pointer}
 .empty{padding:40px;text-align:center;color:var(--muted)}
+nav.tabs{position:sticky;top:0;z-index:5;background:var(--bg);display:flex;gap:4px;overflow-x:auto;
+  scrollbar-width:none;border-bottom:1px solid var(--line);margin:0 -16px 14px;padding:8px 16px}
+nav.tabs::-webkit-scrollbar{display:none}
+.tab{padding:8px 12px;border-radius:8px;color:var(--muted);font-weight:600;white-space:nowrap}
+.tab:hover{text-decoration:none;color:var(--ink)}
+.tab[aria-current=page]{background:var(--card);color:var(--accent);box-shadow:0 0 0 1px var(--line)}
+.tab .n{font-weight:400;font-size:12px;margin-left:4px;opacity:.8}
+.pager{display:flex;gap:6px;justify-content:center;align-items:center;flex-wrap:wrap;margin:16px 0}
+.pager button{min-width:40px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font:inherit;cursor:pointer}
+.pager button[aria-current=page]{border-color:var(--accent);color:var(--accent);font-weight:700}
+.pager button:disabled{opacity:.4;cursor:default}.pager span{color:var(--muted);padding:0 4px}
+.ap{width:18px;height:18px;margin:2px 0 0;cursor:pointer;accent-color:var(--accent)}td.apcell{text-align:center}
+@media (max-width:720px){
+  main{padding:0 16px 24px;max-width:100vw;overflow-x:hidden}h1{font-size:19px;margin-top:14px}
+  .bar{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.bar::-webkit-scrollbar{display:none}
+  .label{min-width:auto;flex:none}.chip{flex:none}input[type=search]{min-width:0;font-size:16px}
+  .wrap{border:0;background:none;overflow:visible}
+  table,tbody{display:block;min-width:0;width:100%}thead{display:none}
+  tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;background:var(--card);border:1px solid var(--line);
+     border-radius:12px;padding:12px 14px;margin-bottom:10px}
+  td{display:block;border:0;padding:0;min-width:0;overflow-wrap:anywhere}
+  td.role{grid-column:1/-1;order:-1;font-size:15px}
+  td.co{white-space:normal}td.loc{grid-column:1/-1;max-width:none}
+  td.when{grid-column:1/2;white-space:normal}td.when br{display:none}td.when small::before{content:" · "}
+  td.spon{grid-column:1/2}td.apcell{grid-column:2;grid-row:2/4;align-self:center;text-align:center}
+  td.apcell::after{content:"Applied";display:block;font-size:11px;color:var(--muted)}
+  .ap{width:24px;height:24px}details{max-width:none}
+}
 </style></head><body><main>
+<nav class="tabs" id="tabs"></nav>
 <h1>Internship Tracker</h1>
 <p class="sub" id="sub"></p>
 <div class="bar"><input id="q" type="search" placeholder="Search role, company, location…"></div>
@@ -51,13 +80,6 @@ details{margin-top:4px;color:var(--muted);font-size:12px;max-width:340px}summary
   <button class="chip" data-g="win" data-v="72">3 days</button>
   <button class="chip" data-g="win" data-v="168">7 days</button>
   <button class="chip" data-g="win" data-v="">All time</button></div>
-<div class="bar"><span class="label">Section</span>
-  <button class="chip" data-g="sec" data-v="">All</button>
-  <button class="chip" data-g="sec" data-v="swe">SWE</button>
-  <button class="chip" data-g="sec" data-v="quant">Quant</button>
-  <button class="chip" data-g="sec" data-v="finance">Finance</button>
-  <button class="chip" data-g="sec" data-v="hardware">Hardware</button>
-  <button class="chip" data-g="sec" data-v="events">Events &amp; programs</button></div>
 <div class="bar"><span class="label">Location</span>
   <button class="chip" data-g="us" data-v="1">US only</button>
   <button class="chip" data-g="us" data-v="">All countries</button></div>
@@ -74,6 +96,7 @@ details{margin-top:4px;color:var(--muted);font-size:12px;max-width:340px}summary
 <thead><tr><th data-k="company">Company</th><th data-k="title">Role</th><th data-k="location">Location</th>
 <th data-k="posted" data-dir="desc">Posted</th><th data-k="sponsorship">Sponsorship</th><th>Applied</th></tr></thead>
 <tbody id="rows"></tbody></table><div class="empty" id="empty" hidden></div></div>
+<div class="pager" id="pager"></div>
 </main>
 <script>
 const JOBS = __DATA__;
@@ -86,8 +109,17 @@ const store = {
 const LAST_VISIT = store.get("lastVisit", null);
 const applied = new Set(store.get("applied", []));
 addEventListener("pagehide", () => store.set("lastVisit", new Date().toISOString()));
-const state = {win: LAST_VISIT ? "new" : "24", us: "1", sp: "", sec: "", st: "todo"};
+const TABS = [["", "All roles"], ["swe", "SWE"], ["quant", "Quant"], ["finance", "Finance"],
+              ["hardware", "Hardware"], ["events", "Events & programs"], ["other", "Other"]];
+const fromHash = () => { const h = decodeURIComponent(location.hash.slice(1)); return TABS.some(t => t[0] === h) ? h : ""; };
+const state = {win: LAST_VISIT ? "new" : "24", us: "1", sp: "", sec: fromHash(), st: "todo", page: 1};
+const PAGE_SIZE = 50;
 const SECTION = {swe: "SWE", quant: "Quant", finance: "Finance", hardware: "Hardware", events: "Event / program", other: "Other"};
+const PLATFORM = {greenhouse: "Greenhouse", lever: "Lever", ashby: "Ashby", workday: "Workday", oracle: "Oracle",
+  eightfold: "Eightfold", workable: "Workable", rippling: "Rippling", pinpoint: "Pinpoint", page: "careers page"};
+const sourceLabel = j => j.platform === "simplify"
+  ? "via " + (j.source || (String(j.url).includes("vansh") ? "vanshb03" : "Simplify"))
+  : "company site · " + (PLATFORM[j.platform] || j.platform);
 let sortKey = "posted", sortDir = -1;
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const dateOnly = iso => iso && iso.length === 10;  // Workday gives a date with no time
@@ -117,44 +149,69 @@ function when(iso){
 const isNew = j => !!j.first_seen && !j.baseline &&
   (LAST_VISIT ? new Date(j.first_seen) > new Date(LAST_VISIT) : Date.now() - new Date(j.first_seen) < 864e5);
 const inWindow = j => state.win === "new" ? isNew(j) : (!state.win || ageHours(j.posted) <= +state.win);
+const inTab = (j, sec) => sec ? j.section === sec : j.section !== "other";
 function render(){
   const q = document.getElementById("q").value.toLowerCase();
-  const list = JOBS.filter(j =>
+  // Everything except the tab, so each tab can show how many postings it holds.
+  const base = JOBS.filter(j =>
       (!state.us || j.us) &&
-      (state.sec ? j.section === state.sec : j.section !== "other") &&
       inWindow(j) &&
       (!state.sp || j.sponsorship === state.sp) &&
       (state.st === "todo" ? !applied.has(j.url) : state.st === "done" ? applied.has(j.url) : true) &&
-      (j.title + " " + j.company + " " + j.location).toLowerCase().includes(q))
+      (j.title + " " + j.company + " " + j.location).toLowerCase().includes(q));
+  document.getElementById("tabs").innerHTML = TABS.map(([k, label]) =>
+    `<a class="tab" href="#${k}" ${state.sec === k ? 'aria-current="page"' : ""}>${esc(label)}<span class="n">${base.filter(j => inTab(j, k)).length}</span></a>`).join("");
+  const list = base.filter(j => inTab(j, state.sec))
     .sort((a, b) => sortKey === "posted"
       ? (Math.min(ageHours(a.posted), 1e9) - Math.min(ageHours(b.posted), 1e9)) * -sortDir  // smaller age = newer
       : String(a[sortKey] ?? "").localeCompare(String(b[sortKey] ?? "")) * sortDir);
-  document.getElementById("rows").innerHTML = list.map(j => `<tr>
-    <td class="co">${esc(j.company)}<br><small class="src">${esc(SECTION[j.section] || "")} · ${j.platform === "simplify" ? "via community list" : "company site"}</small></td>
-    <td><a href="${esc(j.url)}" target="_blank" rel="noopener">${esc(j.title)}</a>${isNew(j) ? '<span class="badge new">NEW</span>' : ""}</td>
+  const pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+  state.page = Math.min(state.page, pages);
+  const shown = list.slice((state.page - 1) * PAGE_SIZE, state.page * PAGE_SIZE);
+  document.getElementById("rows").innerHTML = shown.map(j => `<tr>
+    <td class="co">${esc(j.company)}<br><small class="src">${esc(SECTION[j.section] || "")} · ${esc(sourceLabel(j))}</small></td>
+    <td class="role"><a href="${esc(j.url)}" target="_blank" rel="noopener">${esc(j.title)}</a>${isNew(j) ? '<span class="badge new">NEW</span>' : ""}</td>
     <td class="loc">${esc(j.location)}</td>
     <td class="when">${when(j.posted)}</td>
-    <td><span class="badge ${esc((j.sponsorship || "Not").split(" ")[0])}">${esc(j.sponsorship || "Not specified")}</span>
+    <td class="spon"><span class="badge ${esc((j.sponsorship || "Not").split(" ")[0])}">${esc(j.sponsorship || "Not specified")}</span>
       ${j.sponsorship_evidence ? `<details><summary>Why?</summary>“${esc(j.sponsorship_evidence)}”</details>` : ""}</td>
-    <td><input type="checkbox" class="ap" data-url="${esc(j.url)}" ${applied.has(j.url) ? "checked" : ""} aria-label="Applied"></td></tr>`).join("");
+    <td class="apcell"><input type="checkbox" class="ap" data-url="${esc(j.url)}" ${applied.has(j.url) ? "checked" : ""} aria-label="Applied"></td></tr>`).join("");
+  renderPager(pages);
   const empty = document.getElementById("empty");
   empty.hidden = list.length > 0;
   empty.textContent = state.win === "new" ? "Nothing new since your last visit. Try Last 24 hours or 3 days."
     : state.win ? "Nothing posted in this window yet. Try 3 days or 7 days." : "No postings match.";
   const c = s => list.filter(j => j.sponsorship === s).length;
-  document.getElementById("sub").textContent = `Showing ${list.length} of ${JOBS.length} postings · ${c("Sponsors")} sponsor · ${c("Does not sponsor")} don't · ${c("Not specified")} not specified · updated ${new Date(GENERATED).toLocaleString()}`;
+  const from = list.length ? (state.page - 1) * PAGE_SIZE + 1 : 0, to = Math.min(state.page * PAGE_SIZE, list.length);
+  document.getElementById("sub").textContent = `${from}–${to} of ${list.length} matching (${JOBS.length} tracked) · ${c("Sponsors")} sponsor · ${c("Does not sponsor")} don't · ${c("Not specified")} not specified · updated ${new Date(GENERATED).toLocaleString()}`;
 }
+function renderPager(pages){
+  const p = state.page, nums = new Set([1, pages, p - 1, p, p + 1].filter(n => n >= 1 && n <= pages));
+  let html = `<button data-p="${p - 1}" ${p === 1 ? "disabled" : ""} aria-label="Previous page">‹ Prev</button>`, last = 0;
+  for (const n of [...nums].sort((a, b) => a - b)) {
+    if (n - last > 1) html += "<span>…</span>";
+    html += `<button data-p="${n}" ${n === p ? 'aria-current="page"' : ""}>${n}</button>`; last = n;
+  }
+  html += `<button data-p="${p + 1}" ${p === pages ? "disabled" : ""} aria-label="Next page">Next ›</button>`;
+  const el = document.getElementById("pager"); el.innerHTML = html; el.hidden = pages <= 1;
+}
+document.getElementById("pager").addEventListener("click", e => {
+  const b = e.target.closest("button[data-p]"); if (!b || b.disabled) return;
+  state.page = +b.dataset.p; render();
+  document.getElementById("tabs").scrollIntoView({block: "start"});
+});
 function sync(){ document.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-pressed", state[b.dataset.g] === b.dataset.v)); }
-document.getElementById("q").addEventListener("input", render);
+addEventListener("hashchange", () => { state.sec = fromHash(); state.page = 1; render(); });
+document.getElementById("q").addEventListener("input", () => { state.page = 1; render(); });
 document.getElementById("rows").addEventListener("change", e => {
   if (!e.target.classList.contains("ap")) return;
   e.target.checked ? applied.add(e.target.dataset.url) : applied.delete(e.target.dataset.url);
   store.set("applied", [...applied]);
 });
-document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => { state[b.dataset.g] = b.dataset.v; sync(); render(); }));
-document.querySelectorAll("th").forEach(th => th.addEventListener("click", () => {
+document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => { state[b.dataset.g] = b.dataset.v; state.page = 1; sync(); render(); }));
+document.querySelectorAll("th[data-k]").forEach(th => th.addEventListener("click", () => {
   sortDir = sortKey === th.dataset.k ? -sortDir : (th.dataset.k === "posted" ? -1 : 1);
-  sortKey = th.dataset.k;
+  sortKey = th.dataset.k; state.page = 1;
   document.querySelectorAll("th").forEach(x => x.removeAttribute("data-dir"));
   th.dataset.dir = sortDir > 0 ? "asc" : "desc"; render();
 }));
@@ -166,7 +223,7 @@ sync(); render();
 def write(jobs):
     from db import now
     rows = [{k: j.get(k) for k in ("company", "platform", "title", "location", "url", "us", "posted",
-                                   "first_seen", "sponsorship", "sponsorship_evidence", "section", "baseline")}
+                                   "first_seen", "sponsorship", "sponsorship_evidence", "section", "baseline", "source")}
             for j in jobs]
     data = json.dumps(rows).replace("</", "<\\/")  # keep job text from closing the <script> tag
     REPORT_PATH.write_text(PAGE.replace("__DATA__", data).replace("__GENERATED__", now()))

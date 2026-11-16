@@ -5,6 +5,9 @@ Every job, no matter which platform it came from, becomes a dict like:
 """
 import html
 import re
+import threading
+import time
+from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta, timezone
 
@@ -15,6 +18,16 @@ from sections import is_event
 HEADERS = {"User-Agent": "personal-job-tracker"}
 WORKDAY_PAGE_SIZE = 20  # Workday rejects anything larger
 WORKDAY_MAX_JOBS = 2000  # results are sorted by relevance, not date, so read them all
+# Extra searches on sites that only return search results (Workday, Oracle, Eightfold), so student
+# programs and events show up too. Results are by relevance, so only the top few pages are read.
+EVENT_SEARCHES = ["insight", "sophomore", "discovery"]
+EVENT_MAX_JOBS = 20
+
+
+def searches(c):
+    """(search text, max results) pairs for a search-only careers site."""
+    own = c.get("searches", ["intern"])  # banks say "summer analyst" rather than "intern"
+    return [(s, None) for s in own] + [(s, EVENT_MAX_JOBS) for s in EVENT_SEARCHES if s not in own]
 
 
 def html_to_text(s):
@@ -97,21 +110,37 @@ def _workday_relative_date(posted_on):
     return (date.today() - timedelta(days=int(m.group(1)))).isoformat() if m else ""
 
 
+# Many companies share one Workday server (wd1, wd5, wd12…), which rate-limits by caller, so cap
+# how many requests are in flight to each server across all companies.
+WORKDAY_HOST_LIMIT = 2
+_workday_slots = defaultdict(lambda: threading.Semaphore(WORKDAY_HOST_LIMIT))
+
+
 def fetch_workday(c, client):
     # Workday has no official public API. Its career sites call this JSON endpoint,
     # which pages 20 at a time and only reports "total" on the first page.
     base = f"https://{c['tenant']}.{c['wd']}.myworkdayjobs.com"
     api = f"{base}/wday/cxs/{c['tenant']}/{c['site']}"
     def get_page(search, offset):
-        r = client.post(f"{api}/jobs", json={"appliedFacets": {}, "limit": WORKDAY_PAGE_SIZE,
-                                             "offset": offset, "searchText": search})
+        for wait in (2, 5, 10, None):  # Workday rate-limits busy sites; back off and retry
+            with _workday_slots[c["wd"]]:
+                r = client.post(f"{api}/jobs", json={"appliedFacets": {}, "limit": WORKDAY_PAGE_SIZE,
+                                                     "offset": offset, "searchText": search})
+            if r.status_code != 429 or wait is None:
+                break
+            time.sleep(wait)
         r.raise_for_status()
         return r.json()
 
     jobs = {}
-    for search in c.get("searches", ["intern"]):  # banks say "summer analyst" rather than "intern"
-        first = get_page(search, 0)
-        total = min(first.get("total", 0), WORKDAY_MAX_JOBS)
+    for search, cap in searches(c):
+        try:
+            first = get_page(search, 0)
+        except httpx.HTTPStatusError:
+            if cap:  # an extra event search was refused; keep what the main searches found
+                continue
+            raise
+        total = min(first.get("total", 0), cap or WORKDAY_MAX_JOBS)
         # The first page tells us how many there are, so fetch the rest in parallel.
         with ThreadPoolExecutor(max_workers=4) as pool:
             rest = list(pool.map(lambda o: get_page(search, o), range(WORKDAY_PAGE_SIZE, total, WORKDAY_PAGE_SIZE)))
@@ -134,8 +163,8 @@ def fetch_oracle(c, client):
     """Oracle Cloud careers sites (JPMorgan, American Express). Results come newest first."""
     api = f"https://{c['host']}/hcmRestApi/resources/latest/recruitingCEJobRequisitions"
     jobs = {}
-    for search in c.get("searches", ["intern"]):
-        for offset in range(0, ORACLE_MAX_JOBS, ORACLE_PAGE_SIZE):
+    for search, cap in searches(c):
+        for offset in range(0, cap or ORACLE_MAX_JOBS, ORACLE_PAGE_SIZE):
             finder = (f'findReqs;siteNumber={c["site"]},keyword="{search}",limit={ORACLE_PAGE_SIZE},'
                       f"offset={offset},sortBy=POSTING_DATES_DESC")
             r = client.get(api, params={"onlyData": "true", "finder": finder,
@@ -161,8 +190,8 @@ def fetch_eightfold(c, client):
     """Eightfold careers sites (Morgan Stanley). Sorted newest first."""
     base = f"https://{c['host']}"
     jobs = {}
-    for search in c.get("searches", ["intern"]):
-        for page_num in range(EIGHTFOLD_MAX_PAGES):
+    for search, cap in searches(c):
+        for page_num in range(cap // 10 if cap else EIGHTFOLD_MAX_PAGES):
             r = client.get(f"{base}/api/pcsx/search", params={
                 "domain": c["domain"], "query": search, "start": page_num * 10, "sort_by": "timestamp"})
             r.raise_for_status()
@@ -211,6 +240,7 @@ def fetch_pinpoint(c, client):
 
 
 PAGE_LINK = re.compile(r'<a\b[^>]*href=["\']([^"\'#]+)["\'][^>]*>(.*?)</a>', re.S | re.I)
+NON_US = re.compile(r"hong kong|london|dublin|sydney|singapore|amsterdam|tokyo|mumbai|india|\buk\b|emea|apac|europe|asia", re.I)
 PAGE_HEADERS = {"User-Agent": "Mozilla/5.0 (Macintosh) personal-job-tracker"}
 
 
@@ -222,13 +252,15 @@ def fetch_page(c, client):
     r = client.get(c["url"], headers=PAGE_HEADERS)
     r.raise_for_status()
     pattern = re.compile(c.get("pattern", r"\bintern(ship)?s?\b|summer analyst|co-?op"), re.I)
+    # Pages rarely list a location per role; assume the US unless the title names somewhere else.
     jobs = {}
     for href, text in PAGE_LINK.findall(r.text):
         title = re.sub(r"^Title\s+", "", re.sub(r"\s+", " ", html_to_text(text)).strip())  # iCIMS prefixes "Title"
         if title and len(title) < 160 and pattern.search(title):
             url = str(httpx.URL(c["url"]).join(html.unescape(href)))
+            location = "" if NON_US.search(title) else c.get("location", "United States")
             jobs[url] = _job("page", c["name"].lower().replace(" ", "-"), url, c["name"], title,
-                             c.get("location", ""), url, "", "")
+                             location, url, "", "")
     return list(jobs.values())
 
 

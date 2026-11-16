@@ -16,15 +16,16 @@ CREATE TABLE IF NOT EXISTS jobs (
     sponsorship_evidence TEXT,   -- the sentence that decided it
     category TEXT,               -- Simplify's role category, when available
     section TEXT,                -- swe / quant / finance / hardware / events / other (see sections.py)
-    baseline INTEGER             -- 1 if recorded on its source's first check (already open, not new)
+    baseline INTEGER,            -- 1 if recorded on its source's first check (already open, not new)
+    source TEXT                  -- config entry it came from: a company, "Simplify" or "vanshb03"
 );
 CREATE TABLE IF NOT EXISTS companies_seen (name TEXT PRIMARY KEY);
 """
 
 COLUMNS = ["id", "company", "platform", "title", "location", "url", "us", "posted",
-           "first_seen", "sponsorship", "sponsorship_evidence", "category", "section", "baseline"]
+           "first_seen", "sponsorship", "sponsorship_evidence", "category", "section", "baseline", "source"]
 # Columns added after the first version; older databases get them on connect.
-ADDED_COLUMNS = {"category": "TEXT", "section": "TEXT", "baseline": "INTEGER"}
+ADDED_COLUMNS = {"category": "TEXT", "section": "TEXT", "baseline": "INTEGER", "source": "TEXT"}
 
 
 def connect():
@@ -35,6 +36,11 @@ def connect():
     for name, kind in ADDED_COLUMNS.items():
         if name not in existing:
             conn.execute(f"ALTER TABLE jobs ADD COLUMN {name} {kind}")
+    if "source" not in existing:  # older rows: tell the two community lists apart by their links
+        conn.execute("UPDATE jobs SET source = CASE WHEN url LIKE '%vansh%' THEN 'vanshb03' ELSE 'Simplify' END "
+                     "WHERE platform = 'simplify'")
+        conn.execute("UPDATE jobs SET source = company WHERE platform != 'simplify'")
+        conn.commit()
     return conn
 
 
