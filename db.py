@@ -89,6 +89,8 @@ def save_new_jobs(conn, jobs, fetched_sources):
     baselined = {r["name"] for r in conn.execute("SELECT name FROM companies_seen")}
     for j in jobs:
         j["baseline"] = int(j["source"] not in baselined)
+        if not j.get("posted") and not j["baseline"]:
+            j["posted"] = j["first_seen"]  # platforms without a posting date: when we first saw it
     placeholders = ", ".join(f":{c}" for c in COLUMNS)
     conn.executemany(f"INSERT OR IGNORE INTO jobs ({', '.join(COLUMNS)}) VALUES ({placeholders})",
                      [{c: j.get(c) for c in COLUMNS} for j in jobs])
