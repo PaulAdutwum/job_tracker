@@ -3735,6 +3735,30 @@
       "name": "Capitolis Inc",
       "platform": "greenhouse",
       "slug": "capitolis"
+    },
+    {
+      "name": "Jane Street (programs & events)",
+      "platform": "page",
+      "url": "https://www.janestreet.com/join-jane-street/programs-and-events/",
+      "pattern": "program|insight|discovery|fellowship|summit|datathon|hackathon|week\\b|day\\b|intensive|accepting applications"
+    },
+    {
+      "name": "Susquehanna (SIG) programs",
+      "platform": "page",
+      "url": "https://careers-sig.icims.com/jobs/search?ss=1&searchKeyword=program&in_iframe=1",
+      "pattern": "program|insight|discovery|fellowship|summit|datathon|hackathon|week\\b|day\\b|intensive|accepting applications"
+    },
+    {
+      "name": "Susquehanna (SIG) discovery",
+      "platform": "page",
+      "url": "https://careers-sig.icims.com/jobs/search?ss=1&searchKeyword=discovery&in_iframe=1",
+      "pattern": "program|insight|discovery|fellowship|summit|datathon|hackathon|week\\b|day\\b|intensive|accepting applications"
+    },
+    {
+      "name": "Five Rings (programs)",
+      "platform": "page",
+      "url": "https://fiverings.com/careers/",
+      "pattern": "program|insight|discovery|fellowship|summit|datathon|hackathon|week\\b|day\\b|intensive|accepting applications"
     }
   ],
   "ignored_boards": [
